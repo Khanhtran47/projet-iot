@@ -6,6 +6,7 @@ if (session_id() == '' || !isset($_SESSION)) {
 }
 
 if (isset($_POST["submit"])) {
+  //if (isset($_POST["email"]) && $_POST["email"] != '') {
   $username = $_POST["name"];
   $email = $_POST["email"];
   $phone = $_POST["phone"];
@@ -21,9 +22,10 @@ if (isset($_POST["submit"])) {
   $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
   // More headers
-  $headers .= 'From: contact@hkt-iot.herokuapp.com';
+  $headers .= "From: " . $email . "\r\n";
 
   $mail = mail($to, $subject, $message, $headers);
+  //}
 
   if ($mail) {
     echo "<script>alert('Mail Send.');</script>";
