@@ -7,24 +7,19 @@ if (session_id() == '' || !isset($_SESSION)) {
 
 if (isset($_POST["submit"])) {
   //if (isset($_POST["email"]) && $_POST["email"] != '') {
-  $username = $_POST["name"];
-  $email = $_POST["email"];
-  $phone = $_POST["phone"];
+  $userName = $_POST["name"];
+  $userEmail = $_POST["email"];
+  $messageSubject = $_POST["subject"];
   $message = $_POST["message"];
 
   $to = "tranduckhanh23@gmail.com";
-  $subject = $message;
+  $body = "";
 
-  $message = "Name: {$username} Email: {$email} Phone: {$phone}  Message: " . $message;
+  $body .= "From: " . $userName . "\r\n";
+  $body .= "Email: " . $userEmail . "\r\n";
+  $body .= "Message: " . $message . "\r\n";
 
-  // Always set content-type when sending HTML email
-  $headers = "MIME-Version: 1.0" . "\r\n";
-  $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-  // More headers
-  $headers .= "From: " . $email . "\r\n";
-
-  $mail = mail($to, $subject, $message, $headers);
+  $mail = mail($to, $messageSubject, $body);
   //}
 
   if ($mail) {
@@ -149,9 +144,9 @@ if (isset($_POST["submit"])) {
             <span>Email</span>
           </div>
           <div class="input-container">
-            <input type="tel" name="phone" class="input" />
-            <label for="">Phone</label>
-            <span>Phone</span>
+            <input type="message" name="subject" class="input" />
+            <label for="">Subject</label>
+            <span>Subject</span>
           </div>
           <div class="input-container textarea">
             <textarea name="message" class="input"></textarea>
