@@ -36,7 +36,7 @@ ul {
   font-size: 1em;
   padding: 1em 3em;
   color: #fff;
-  background: #82ca9c;
+  background: #1abc9c;
   font-weight: bold;
   border-radius: 50px;
   float: right;
@@ -63,7 +63,7 @@ ul {
 .btn:hover,
 .btn:focus,
 .btn:active {
-  background: #adf679;
+  background: #0f6f5c;
 }
 
 .btn:hover:after,
@@ -184,7 +184,7 @@ a.continue:visited {
   font-size: 0.75em;
   padding: 1em;
   color: #fff;
-  background: #82ca9c;
+  background: #1abc9c;
   font-weight: bold;
   border-radius: 50px;
   text-align: right;
@@ -210,7 +210,7 @@ a.continue:after {
 a.continue:hover,
 a.continue:focus,
 a.continue:active {
-  background: #f69679;
+  background: #0f6f5c;
 }
 
 a.continue:hover:after,
@@ -396,13 +396,13 @@ input:focus {
 
 .empty:link,
 .empty:visited {
-  background: #ca8282;
+  background: #bc2d1a;
 }
 
 .empty:hover,
 .empty:focus,
 .empty:active {
-  background: #f67979;
+  background: #6f120f;
 }
 
 .empty-cart {

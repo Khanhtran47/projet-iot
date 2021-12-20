@@ -22,8 +22,8 @@ if (isset($_SESSION["username"])) {
   <!-- Always include this line of code!!! -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" href="img/favicon.png" />
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="icon" href="../../img/favicon.png" />
+  <link rel="apple-touch-icon" href="../../img/apple-touch-icon.png" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -54,7 +54,6 @@ if (isset($_SESSION["username"])) {
           echo '<li><a href="../../components/logout.php" class="main-nav-link">Log Out</a></li>';
         } else {
           echo '<li><a href="../login/login.php" class="main-nav-link">Log In</a></li>';
-          echo '<li><a href="../register/register.php" class="main-nav-link">Register</a></li>';
         }
         ?>
       </ul>
@@ -66,34 +65,30 @@ if (isset($_SESSION["username"])) {
     </button>
   </header>
 
-  <div class="container-form" id="container-form">
+  <div class="container-form" id="containerSignIn">
     <div class="form-container sign-up-container">
-      <form action="#">
+      <form method="POST" class="cta-form" action="../../components/insert.php" netlify>
         <h1>Create Account</h1>
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        <span>Use your email for registration</span>
+        <div class="flex">
+          <input type="text" placeholder="First Name" name="fname">
+          <input type="text" id="right-label" placeholder="Last Name" name="lname">
         </div>
-        <span>or use your email for registration</span>
-        <input type="text" placeholder="Name" />
+        <input type="text" id="right-label" placeholder="Address" name="address">
+        <div class="flex">
+          <input type="text" id="right-label" placeholder="City" name="city">
+          <input type="number" id="right-label" placeholder="Code Postal" name="pin">
+        </div>
         <input type="email" placeholder="Email" />
         <input type="password" placeholder="Password" />
         <button>Sign Up</button>
       </form>
     </div>
     <div class="form-container sign-in-container">
-      <form action="#">
+      <form method="POST" class="cta-form" action="../../components/verify.php" netlify>
         <h1>Sign in</h1>
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <span>or use your account</span>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <a href="#">Forgot your password?</a>
+        <input id="right-label" type="email" name="username" placeholder="Email" required />
+        <input id="right-label" type="password" name="pwd" placeholder="Password" required />
         <button>Sign In</button>
       </form>
     </div>
@@ -112,7 +107,6 @@ if (isset($_SESSION["username"])) {
       </div>
     </div>
   </div>
-
 
   <footer class="footer">
     <div class="container grid grid--footer">
@@ -192,7 +186,7 @@ if (isset($_SESSION["username"])) {
   <script type="text/javascript">
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container-form');
+    const container = document.getElementById('containerSignIn');
 
     signUpButton.addEventListener('click', () => {
       container.classList.add("right-panel-active");

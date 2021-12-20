@@ -47,7 +47,6 @@ if (session_id() == '' || !isset($_SESSION)) {
           echo '<li><a href="components/logout.php" class="main-nav-link">Log Out</a></li>';
         } else {
           echo '<li><a href="pages/login/login.php" class="main-nav-link">Log In</a></li>';
-          echo '<li><a href="pages/register/register.php" class="main-nav-link">Register</a></li>';
         }
         ?>
       </ul>

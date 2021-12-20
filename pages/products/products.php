@@ -52,7 +52,6 @@ include '../../database/config.php';
             echo '<li><a href="../../components/logout.php" class="main-nav-link">Log Out</a></li>';
           } else {
             echo '<li><a href="../login/login.php" class="main-nav-link">Log In</a></li>';
-            echo '<li><a href="../register/register.php" class="main-nav-link">Register</a></li>';
           }
           ?>
         </ul>
