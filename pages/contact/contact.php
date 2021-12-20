@@ -21,7 +21,7 @@ if (isset($_POST["submit"])) {
   $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
   // More headers
-  $headers .= 'From: hungc4k43@gmail.com';
+  $headers .= 'From: contact@hkt-iot.herokuapp.com';
 
   $mail = mail($to, $subject, $message, $headers);
 
