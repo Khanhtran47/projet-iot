@@ -21,7 +21,7 @@ if (isset($_POST["submit"])) {
   $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
   // More headers
-  $headers .= 'From: {$email}';
+  $headers .= 'From: hungc4k43@gmail.com';
 
   $mail = mail($to, $subject, $message, $headers);
 
@@ -49,6 +49,7 @@ if (isset($_POST["submit"])) {
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/grid.css" />
   <link rel="stylesheet" href="./contact.css">
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
 
@@ -84,7 +85,7 @@ if (isset($_POST["submit"])) {
       <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
     </button>
   </header>
-  <div class="container">
+  <div class="container-form">
     <span class="big-circle"></span>
     <img src="../../img/contact/shape.png" class="square" alt="" />
     <div class="form">
@@ -160,6 +161,81 @@ if (isset($_POST["submit"])) {
       </div>
     </div>
   </div>
+  <footer class="footer">
+    <div class="container grid grid--footer">
+      <div class="logo-col">
+        <a href="#" class="footer-logo">
+          <img class="logo" alt="HKGT logo" src="#" />
+        </a>
+
+        <ul class="social-links">
+          <li>
+            <a class="footer-link" href="#">
+              <ion-icon class="social-icon" name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="#">
+              <ion-icon class="social-icon" name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="#">
+              <ion-icon class="social-icon" name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+        <p class="copyright">
+          Copyright &copy; <span class="year">2027</span> by HKT, Inc. All rights reserved.
+        </p>
+      </div>
+
+      <div class="address-col">
+        <p class="footer-heading">Contact us</p>
+        <address class="contacts">
+          <p class="address">15 avenue Maréchal Foch, 41000 Blois, France</p>
+          <p>
+            <a class="footer-link" href="tel:+33 123 45 67 89">
+              +33 123 45 67 89
+            </a>
+            <br />
+            <a class="footer-link" href="mailto:hungc4k43@gmail.com">
+              hungc4k43@gmail.com
+            </a>
+          </p>
+        </address>
+      </div>
+
+      <nav class="nav-col">
+        <p class="footer-heading">Account</p>
+        <ul class="footer-nav">
+          <li><a class="footer-link" href="#">Create account</a></li>
+          <li><a class="footer-link" href="#">Sign in</a></li>
+          <li><a class="footer-link" href="#">iOS app</a></li>
+          <li><a class="footer-link" href="#">Android app</a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-col">
+        <p class="footer-heading">Company</p>
+        <ul class="footer-nav">
+          <li><a class="footer-link" href="#">About HKT</a></li>
+          <li><a class="footer-link" href="#">For Business</a></li>
+          <li><a class="footer-link" href="#">Partners</a></li>
+          <li><a class="footer-link" href="#">Careers</a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-col">
+        <p class="footer-heading">Resources</p>
+        <ul class="footer-nav">
+          <li><a class="footer-link" href="#">Help center</a></li>
+          <li><a class="footer-link" href="#">Privacy & terms</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
 
   <script type="text/javascript">
     const inputs = document.querySelectorAll(".input");

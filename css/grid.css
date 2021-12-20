@@ -63,17 +63,17 @@
 
 .container {
   /* 1140px */
-  max-width: 120rem;
-  padding: 0 3.2rem;
+  max-width: 75rem;
+  padding: 0 2rem;
   margin: 0 auto;
-  padding-bottom: 20px;
+  padding-bottom: 12.5px;
 }
 
 .grid {
   display: -ms-grid;
   display: grid;
-  column-gap: 6.4rem;
-  row-gap: 9.6rem;
+  column-gap: 4rem;
+  row-gap: 6rem;
 
   /* margin-bottom: 9.6rem; */
 }
@@ -83,7 +83,7 @@
 } */
 
 .grid:not(:last-child) {
-  margin-bottom: 9.6rem;
+  margin-bottom: 6rem;
 }
 
 .grid--2-cols {

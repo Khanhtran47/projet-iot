@@ -1,9 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #dfdfdf;
 }
 
 body,
@@ -12,10 +24,89 @@ textarea {
   font-family: "Poppins", sans-serif;
 }
 
-.container {
+/**************************/
+/* HEADER */
+/**************************/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.727) !important;
+
+  /* Because we want header to be sticky later */
+  height: 6rem;
+  padding: 0 3rem;
   position: relative;
   width: 100%;
-  min-height: 100vh;
+}
+
+.logo {
+  height: 7.5rem;
+}
+
+/**************************/
+/* NAVIGATION */
+/**************************/
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(233, 233, 233);
+  font-weight: 500;
+  font-size: 1.125rem;
+  transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #c91fdc;
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #c91fdc;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  background-color: #e92bfe;
+}
+
+/* MOBILE */
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  display: none;
+}
+
+.icon-mobile-nav {
+  height: 3rem;
+  width: 3rem;
+  color: #333;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
+.container-form {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
   padding: 2rem;
   background-color: #fafafa;
   overflow: hidden;
@@ -26,7 +117,7 @@ textarea {
 
 .form {
   width: 100%;
-  max-width: 820px;
+  max-width: 900px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
@@ -334,6 +425,86 @@ textarea.input {
   .social-media {
     padding: 1.5rem 0 0 0;
   }
+}
+
+/**************************/
+/* FOOTER */
+/**************************/
+
+.footer {
+  background-color: rgb(48, 48, 48);
+  padding: 8rem 0;
+  border-top: 1px solid #eee;
+}
+
+.grid--footer {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
+
+.logo-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #767676;
+  margin-top: auto;
+}
+
+.footer-heading {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+  color: rgb(233, 233, 233);
+}
+
+.contacts {
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.address {
+  margin-bottom: 1.5rem;
+  color: rgb(233, 233, 233);
+}
+
+.footer-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #767676;
+  transition: all 0.3s;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: #555;
 }
 
 @media (max-width: 480px) {
