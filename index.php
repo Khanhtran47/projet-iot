@@ -35,7 +35,7 @@ if (session_id() == '' || !isset($_SESSION)) {
       <img class="logo" alt="Logo" src="https://webstatic-sea.mihoyo.com/upload/event/2021/10/12/af8f45f5d1a34eb13aa2c70a2af59d05_6274939367807151451.png" />
     </a>
 
-    <nav class="main-nav animate__animated animate__slideInDown">
+    <nav class="main-nav">
       <ul class="main-nav-list">
         <li><a href="pages/products/products.php" class="main-nav-link">Products</a></li>
         <li><a href="pages/cart/cart.php" class="main-nav-link">View Cart</a></li>
@@ -189,21 +189,21 @@ if (session_id() == '' || !isset($_SESSION)) {
           <img src="img/AboutUs/hung.jpg" class="meal-img" alt="Japanese Gyozas" />
           <div class="meal-content">
             <div class="meal-tags">
-              <span class="tag tag--vegetarian">PrO Vjp</span>
+              <span class="tag tag--vegetarian">content</span>
             </div>
             <p class="meal-title">NGUYEN Khac Nhat Hung</p>
             <ul class="meal-attributes">
               <li class="meal-attribute">
                 <img class="meal-icon" src="img/icon/flame-outline.svg" />
-                <span><strong>20 years +</strong> build PC</span>
+                <span><strong>content</strong> content</span>
               </li>
               <li class="meal-attribute">
                 <img class="meal-icon" src="img/icon/restaurant-outline.svg" />
-                <span>Friendly rating<strong> 4.9/10 </strong></span>
+                <span>some contents<strong> some numbers </strong></span>
               </li>
               <li class="meal-attribute">
                 <img class="meal-icon" src="img/icon/star-outline.svg" />
-                <span><strong>80+</strong> PC owner </span>
+                <span><strong>blabla</strong> big content </span>
               </li>
             </ul>
           </div>
@@ -213,22 +213,22 @@ if (session_id() == '' || !isset($_SESSION)) {
           <img src="img/AboutUs/khanh.png" class="meal-img" alt="Avocado Salad" />
           <div class="meal-content">
             <div class="meal-tags">
-              <span class="tag tag--vegan">Vegan</span>
-              <span class="tag tag--paleo">Paleo</span>
+              <span class="tag tag--vegan">content</span>
+              <span class="tag tag--paleo">content</span>
             </div>
             <p class="meal-title">TRAN Duc Khanh</p>
             <ul class="meal-attributes">
               <li class="meal-attribute">
                 <img class="meal-icon" src="img/icon/flame-outline.svg" />
-                <span><strong>20 years + </strong> build PC </span>
+                <span><strong>content</strong> some contents </span>
               </li>
               <li class="meal-attribute">
                 <img class="meal-icon" src="img/icon/restaurant-outline.svg" />
-                <span>Wibu &reg; <strong> 400 years +</strong></span>
+                <span>Contents &reg; <strong> big numbers content</strong></span>
               </li>
               <li class="meal-attribute">
                 <img class="meal-icon" src="img/icon/star-outline.svg" />
-                <span><strong>4.8/10</strong> rating</span>
+                <span><strong>number content</strong> content</span>
               </li>
             </ul>
           </div>
@@ -238,22 +238,22 @@ if (session_id() == '' || !isset($_SESSION)) {
           <img src="https://uploadstatic-sea.mihoyo.com/contentweb/20210719/2021071920203256336.jpg" class="meal-img" alt="Avocado Salad" />
           <div class="meal-content">
             <div class="meal-tags">
-              <span class="tag tag--vegan">Vegan</span>
-              <span class="tag tag--paleo">Paleo</span>
+              <span class="tag tag--vegan">content</span>
+              <span class="tag tag--paleo">content</span>
             </div>
-            <p class="meal-title">Ad pariatur nisi</p>
+            <p class="meal-title">NGUYEN Van Thao</p>
             <ul class="meal-attributes">
               <li class="meal-attribute">
                 <img class="meal-icon" src="img/icon/flame-outline.svg" />
-                <span><strong>400</strong> calories</span>
+                <span><strong>content</strong> contents</span>
               </li>
               <li class="meal-attribute">
                 <img class="meal-icon" src="img/icon/restaurant-outline.svg" />
-                <span>NutriScore &reg; <strong>92</strong></span>
+                <span>big contents &reg; <strong>number content</strong></span>
               </li>
               <li class="meal-attribute">
                 <img class="meal-icon" src="img/icon/star-outline.svg" />
-                <span><strong>4.8</strong> rating (441)</span>
+                <span><strong>some contents</strong> CONTENTS</span>
               </li>
             </ul>
           </div>
