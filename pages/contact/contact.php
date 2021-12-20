@@ -5,27 +5,46 @@ if (session_id() == '' || !isset($_SESSION)) {
   session_start();
 }
 
-if (isset($_POST["submit"])) {
-  //if (isset($_POST["email"]) && $_POST["email"] != '') {
+use PHPMailer\PHPMailer\PHPMailer;
+
+require_once '../../phpmailer/Exception.php';
+require_once '../../phpmailer/PHPMailer.php';
+require_once '../../phpmailer/SMTP.php';
+
+$mail = new PHPMailer(true);
+
+$alert = '';
+
+if (isset($_POST['submit'])) {
   $userName = $_POST["name"];
   $userEmail = $_POST["email"];
   $messageSubject = $_POST["subject"];
   $message = $_POST["message"];
 
-  $to = "tranduckhanh23@gmail.com";
-  $body = "";
+  try {
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'hktech.iot@gmail.com'; // Gmail address which you want to use as SMTP server
+    $mail->Password = 'tranduckhanh'; // Gmail address Password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = '587';
 
-  $body .= "From: " . $userName . "\r\n";
-  $body .= "Email: " . $userEmail . "\r\n";
-  $body .= "Message: " . $message . "\r\n";
+    $mail->setFrom('hktech.iot@gmail.com'); // Gmail address which you used as SMTP server
+    $mail->addAddress('hktech.iot@gmail.com'); // Email address where you want to receive emails (you can use any of your gmail address including the gmail address which you used as SMTP server)
 
-  $mail = mail($to, $messageSubject, $body);
-  //}
+    $mail->isHTML(true);
+    $mail->Subject = "" . $messageSubject . "";
+    $mail->Body = "<h3>Name : $userName <br>Email: $userEmail <br>Message : $message</h3>";
 
-  if ($mail) {
-    echo "<script>alert('Mail Send.');</script>";
-  } else {
-    echo "<script>alert('Mail Not Send.');</script>";
+    $mail->send();
+    $alert = '<div class="alert-success">
+                <span>Message Sent! Thank you for contacting us.</span>
+              </div>';
+  } catch (Exception $e) {
+    $alert = '<div class="alert-error">
+                <span>' . $e->getMessage() . '</span>
+              </div>';
   }
 }
 
@@ -236,6 +255,10 @@ if (isset($_POST["submit"])) {
 
   <script type="text/javascript">
     const inputs = document.querySelectorAll(".input");
+
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
 
     function focusFunc() {
       let parent = this.parentNode;
