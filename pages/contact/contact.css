@@ -389,23 +389,8 @@ textarea.input {
   opacity: 0.2;
 }
 
-/*css for alert messages*/
-
-.alert-success {
-  z-index: 1;
-  background: #d4edda;
-  font-size: 18px;
-  padding: 20px 40px;
-  min-width: 420px;
-  position: fixed;
-  right: 0;
-  top: 10px;
-  border-left: 8px solid #3ad66e;
-  border-radius: 4px;
-}
-
 .alert-error {
-  z-index: 1;
+  z-index: 999;
   background: #fff3cd;
   font-size: 18px;
   padding: 20px 40px;
