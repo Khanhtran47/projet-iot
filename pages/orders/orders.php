@@ -70,59 +70,52 @@ include '../../database/config.php';
     echo '<h1>My COD Orders</h1>';
     echo '<a href="../products/products.php" class="continue">Continue Shopping</a>';
     echo '</div>';
+    echo '<div class="orders-item">';
+    echo '<div class="order-id">';
+    echo '<h3>Order ID</h3>';
+    echo '</div>';
+    echo '<div class="date">';
+    echo '<h3>Date of Purchase</h3>';
+    echo '</div>';
+    echo '<div class="product">';
+    echo '<h3>Products Information</h3>';
+    echo '</div>';
+    echo '<div class="unit">';
+    echo '<h3>Unit Bought</h3>';
+    echo '</div>';
+    echo '<div class="total">';
+    echo '<h3>Total Cost</h3>';
+    echo '</div>';
+    echo '</div>';
 
-    if (isset($_SESSION['orders'])) {
-      echo '<div class="orders-item">';
-      echo '<div class="order-id">';
-      echo '<h3>Order ID</h3>';
-      echo '</div>';
-      echo '<div class="date">';
-      echo '<h3>Date of Purchase</h3>';
-      echo '</div>';
-      echo '<div class="product">';
-      echo '<h3>Products Information</h3>';
-      echo '</div>';
-      echo '<div class="unit">';
-      echo '<h3>Unit Bought</h3>';
-      echo '</div>';
-      echo '<div class="total">';
-      echo '<h3>Total Cost</h3>';
-      echo '</div>';
-      echo '</div>';
+    $user = $_SESSION["username"];
+    $result = $mysqli->query("SELECT * from orders where email='" . $user . "'");
+    if ($result) {
+      while ($obj = $result->fetch_object()) {
 
-      $user = $_SESSION["username"];
-      $result = $mysqli->query("SELECT * from orders where email='" . $user . "'");
-      if ($result) {
-        while ($obj = $result->fetch_object()) {
+        echo '<div class="item">';
+        echo '<div class="order-id">';
+        echo '<span>' . $obj->id . '</span>';
+        echo '</div>';
 
-          echo '<div class="item">';
-          echo '<div class="order-id">';
-          echo '<span>' . $obj->id . '</span>';
-          echo '</div>';
+        echo '<div class="date">';
+        echo '<span>' . $obj->date . '</span>';
+        echo '</div>';
 
-          echo '<div class="date">';
-          echo '<span>' . $obj->date . '</span>';
-          echo '</div>';
+        echo '<div class="product">';
+        echo '<span>' . $obj->product_name . '</span>';
+        echo '<span>' . $obj->product_code . '</span>';
+        echo '</div>';
 
-          echo '<div class="product">';
-          echo '<span>' . $obj->product_name . '</span>';
-          echo '<span>' . $obj->product_code . '</span>';
-          echo '</div>';
+        echo '<div class="unit">';
+        echo '<span>' . $obj->units . '</span>';
+        echo '</div>';
 
-          echo '<div class="unit">';
-          echo '<span>' . $obj->units . '</span>';
-          echo '</div>';
-
-          echo '<div class="total">';
-          echo '<span>' . $currency . $obj->total . '</span>';
-          echo '</div>';
-          echo '</div>';
-        }
+        echo '<div class="total">';
+        echo '<span>' . $currency . $obj->total . '</span>';
+        echo '</div>';
+        echo '</div>';
       }
-    } else {
-      echo '<div class="empty-cart">';
-      echo '<h2>You have no orders available.</h2>';
-      echo '</div>';
     }
     ?>
   </div>
