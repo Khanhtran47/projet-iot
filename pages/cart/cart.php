@@ -42,6 +42,7 @@ include '../../database/config.php';
         <?php
 
         if (isset($_SESSION['username'])) {
+          echo '<li><a href="../orders/orders.php" class="main-nav-link">My Orders</a></li>';
           echo '<li><a href="../myAccount/account.php" class="main-nav-link">My Account</a></li>';
           echo '<li><a href="../../components/logout.php" class="main-nav-link">Log Out</a></li>';
         } else {
@@ -69,7 +70,9 @@ include '../../database/config.php';
     if (isset($_SESSION['cart'])) {
 
       $subtotal = 0;
+      $tax = 0;
       $ship = 5;
+      $total = 0;
 
       foreach ($_SESSION['cart'] as $product_id => $quantity) {
 
@@ -154,11 +157,12 @@ include '../../database/config.php';
     }
     ?>
   </div>
+
   <footer class="footer">
     <div class="container grid grid--footer">
       <div class="logo-col">
         <a href="#" class="footer-logo">
-          <img class="logo" alt="HKGT logo" src="#" />
+          <img class="logo" alt="HKT logo" src="#" />
         </a>
 
         <ul class="social-links">

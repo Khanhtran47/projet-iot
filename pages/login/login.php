@@ -50,6 +50,7 @@ if (isset($_SESSION["username"])) {
         <?php
 
         if (isset($_SESSION['username'])) {
+          echo '<li><a href="../orders/orders.php" class="main-nav-link">My Orders</a></li>';
           echo '<li><a href="../myAccount/account.php" class="main-nav-link">My Account</a></li>';
           echo '<li><a href="../../components/logout.php" class="main-nav-link">Log Out</a></li>';
         } else {

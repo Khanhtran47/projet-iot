@@ -59,11 +59,11 @@ include '../../database/config.php';
         <?php
 
         if (isset($_SESSION['username'])) {
+          echo '<li><a href="../orders/orders.php" class="main-nav-link">My Orders</a></li>';
           echo '<li><a href="../myAccount/account.php" class="main-nav-link">My Account</a></li>';
           echo '<li><a href="../../components/logout.php" class="main-nav-link">Log Out</a></li>';
         } else {
           echo '<li><a href="../login/login.php" class="main-nav-link">Log In</a></li>';
-          echo '<li><a href="../register/register.php" class="main-nav-link">Register</a></li>';
         }
         ?>
       </ul>

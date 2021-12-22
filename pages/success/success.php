@@ -46,16 +46,15 @@ if (session_id() == '' || !isset($_SESSION)) {
       <ul class="right">
         <li><a href="../products/products.php">Products</a></li>
         <li><a href="../cart/cart.php">View Cart</a></li>
-        <li><a href="../orders/orders.php">My Orders</a></li>
         <li><a href="../contact/contact.php">Contact</a></li>
         <?php
 
         if (isset($_SESSION['username'])) {
+          echo '<li><a href="../orders/orders.php" class="main-nav-link">My Orders</a></li>';
           echo '<li><a href="../myAccount/account.php">My Account</a></li>';
           echo '<li><a href="../../components/logout.php">Log Out</a></li>';
         } else {
           echo '<li><a href="../login/login.php">Log In</a></li>';
-          echo '<li><a href="../register/register.php">Register</a></li>';
         }
         ?>
       </ul>
