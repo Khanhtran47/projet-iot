@@ -20,8 +20,7 @@ include '../../database/config.php';
 ?>
 
 
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
 
 <head>
   <meta charset="UTF-8" />
@@ -31,16 +30,15 @@ include '../../database/config.php';
   <!-- Always include this line of code!!! -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" href="img/favicon.png" />
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="icon" href="../../img/favicon.png" />
+  <link rel="apple-touch-icon" href="../../img/apple-touch-icon.png" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../../css/style.css" />
-  <link rel="stylesheet" href="../../css/foundation.css" />
+  <link rel="stylesheet" href="../../css/grid.css" />
 
-  <link rel="stylesheet" href="../../css/general.css" />
+  <link rel="stylesheet" href="account.css" />
 
   <title>High Knowledge Technology</title>
 </head>
@@ -75,141 +73,125 @@ include '../../database/config.php';
     </button>
   </header>
 
-
-
-
-
-  <div class="row" style="margin-top:30px;">
-    <div class="small-12">
-      <p><?php echo '<h3>Hi ' . $_SESSION['fname'] . '</h3>'; ?></p>
-
-      <p>
-      <h4>Account Details</h4>
-      </p>
-
-      <p>Below are your details in the database. If you wish to change anything, then just enter new data in text box and click on update.</p>
-    </div>
-  </div>
-
-
-  <form method="POST" action="update.php" style="margin-top:30px;">
-    <div class="row">
-      <div class="small-12">
-
-        <div class="row">
-          <div class="small-3 columns">
-            <label for="right-label" class="right inline">First Name</label>
-          </div>
-          <div class="small-8 columns end">
-            <?php
-
-            $result = $mysqli->query('SELECT * FROM users WHERE id=' . $_SESSION['id']);
-
-            if ($result === FALSE) {
-              die(printf("Error message: %s\n", $mysqli->error));
-            }
-
-            if ($result) {
-              $obj = $result->fetch_object();
-              echo '<input type="text" id="right-label" placeholder="' . $obj->fname . '" name="fname">';
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Last Name</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-
-              echo '<input type="text" id="right-label" placeholder="' . $obj->lname . '" name="lname">';
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Address</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-              echo '<input type="text" id="right-label" placeholder="' . $obj->address . '" name="address">';
-
-
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">City</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-              echo '<input type="text" id="right-label" placeholder="' . $obj->city . '" name="city">';
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Pin Code</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-
-              echo '<input type="text" id="right-label" placeholder="' . $obj->pin . '" name="pin">';
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Email</label>';
-              echo '</div>';
-
-              echo '<div class="small-8 columns end">';
-
-
-              echo '<input type="email" id="right-label" placeholder="' . $obj->email . '" name="email">';
-
-              echo '</div>';
-              echo '</div>';
-            }
-
-
-
-            echo '<div class="row">';
-            echo '<div class="small-3 columns">';
-            echo '<label for="right-label" class="right inline">Password</label>';
-            echo '</div>';
-            echo '<div class="small-8 columns end">';
-            echo '<input type="password" id="right-label" name="pwd">';
-
-            echo '</div>';
-            echo '</div>';
-            ?>
-
-            <div class="row">
-              <div class="small-4 columns">
-
-              </div>
-              <div class="small-8 columns">
-                <input type="submit" id="right-label" value="Update" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
-                <input type="reset" id="right-label" value="Reset" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
-              </div>
-            </div>
-          </div>
+  <div class="container-form right-panel-active" id="containerSignIn">
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <?php echo '<h1>Hi! ' . $_SESSION['fname'] . '</h1>' ?>
+          <p>Here are your details in the database. If you wish to change anything, then just enter new data in text box and click on update.</p>
+          <button class="ghost" id="signIn"><a href="../products/products.php">Continue Shopping</a></button>
         </div>
-  </form>
+      </div>
+    </div>
+    <div class="form-container sign-up-container">
+      <form method="POST" class="cta-form" action="../../components/update.php">
+        <h1>Account Detail</h1>
+        <?php
 
+        $result = $mysqli->query('SELECT * FROM users WHERE id=' . $_SESSION['id']);
 
+        if ($result === FALSE) {
+          die(printf("Error message: %s\n", $mysqli->error));
+        }
 
-  <div class="row" style="margin-top:30px;">
-    <div class="small-12">
+        if ($result) {
+          $obj = $result->fetch_object();
 
-      <footer>
-        <p style="text-align:center; font-size:0.8em;">&copy; HKT Shop. All Rights Reserved.</p>
-      </footer>
+          echo '<div class="flex">';
+          echo '<input type="text" placeholder="' . $obj->fname . '" name="fname">';
+          echo '<input type="text" id="right-label" placeholder="' . $obj->lname . '" name="lname">';
+          echo '</div>';
+          echo '<input type="text" id="right-label" placeholder="' . $obj->address . '" name="address">';
+          echo '<div class="flex">';
+          echo '<input type="text" id="right-label" placeholder="' . $obj->city . '" name="city">';
+          echo '<input type="number" id="right-label" placeholder="' . $obj->pin . '" name="pin">';
+          echo '</div>';
+          echo '<input type="email" placeholder="' . $obj->email . '" />';
+          echo '<input type="password" name="pwd" placeholder="Password"/>';
 
+          echo '<button type="submit" id="right-label" value="Update">Reset</button>';
+          echo '<button type="reset" id="right-label" value="Reset">Reset</button>';
+        }
+        ?>
+      </form>
     </div>
   </div>
+
+  <footer class="footer">
+    <div class="container grid grid--footer">
+      <div class="logo-col">
+        <a href="#" class="footer-logo">
+          <img class="logo" alt="HKGT logo" src="#" />
+        </a>
+
+        <ul class="social-links">
+          <li>
+            <a class="footer-link" href="#">
+              <ion-icon class="social-icon" name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="#">
+              <ion-icon class="social-icon" name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a class="footer-link" href="#">
+              <ion-icon class="social-icon" name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+        </ul>
+
+        <p class="copyright">
+          Copyright &copy; <span class="year">2027</span> by HKT, Inc. All rights reserved.
+        </p>
+      </div>
+
+      <div class="address-col">
+        <p class="footer-heading">Contact us</p>
+        <address class="contacts">
+          <p class="address">15 avenue Maréchal Foch, 41000 Blois, France</p>
+          <p>
+            <a class="footer-link" href="tel:+33 123 45 67 89">
+              +33 123 45 67 89
+            </a>
+            <br />
+            <a class="footer-link" href="mailto:hungc4k43@gmail.com">
+              hungc4k43@gmail.com
+            </a>
+          </p>
+        </address>
+      </div>
+
+      <nav class="nav-col">
+        <p class="footer-heading">Account</p>
+        <ul class="footer-nav">
+          <li><a class="footer-link" href="#">Create account</a></li>
+          <li><a class="footer-link" href="#">Sign in</a></li>
+          <li><a class="footer-link" href="#">iOS app</a></li>
+          <li><a class="footer-link" href="#">Android app</a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-col">
+        <p class="footer-heading">Company</p>
+        <ul class="footer-nav">
+          <li><a class="footer-link" href="#">About HKT</a></li>
+          <li><a class="footer-link" href="#">For Business</a></li>
+          <li><a class="footer-link" href="#">Partners</a></li>
+          <li><a class="footer-link" href="#">Careers</a></li>
+        </ul>
+      </nav>
+
+      <nav class="nav-col">
+        <p class="footer-heading">Resources</p>
+        <ul class="footer-nav">
+          <li><a class="footer-link" href="#">Help center</a></li>
+          <li><a class="footer-link" href="#">Privacy & terms</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
 </body>
 
 </html>
