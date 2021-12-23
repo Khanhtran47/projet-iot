@@ -4,14 +4,14 @@ if (session_id() == '' || !isset($_SESSION)) {
 }
 
 if (!isset($_SESSION["username"])) {
-  header("location:index.php");
+  header("location:../index.php");
 }
 
 if ($_SESSION["type"] != "admin") {
-  header("location:index.php");
+  header("location:../index.php");
 }
 
-include 'config.php';
+include '../database/config.php';
 ?>
 
 <!doctype html>
@@ -25,17 +25,17 @@ include 'config.php';
   <!-- Always include this line of code!!! -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" href="img/favicon.png" />
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+  <link rel="icon" href="../img/favicon.png" />
+  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png" />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
 
-  <link rel="stylesheet" href="css/general.css" />
+  <link rel="stylesheet" href="../css/general.css" />
   <title>Admin || HKT Shop</title>
-  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="../css/foundation.css" />
 </head>
 
 <body>
@@ -52,16 +52,15 @@ include 'config.php';
       <!-- Right Nav Section -->
       <ul class="right">
         <li class="active"><a href="admin.php">Home</a></li>
-        <li><a href="products_show.php">All Products</a></li>
-        <li><a href="add_product.php">Add Product</a></li>
-        <li><a href="edit_quantity.php">Edit Quantity</a></li>
+        <li><a href="./pages/product/products_show.php">All Products</a></li>
+        <li><a href="./pages/addProduct/add_product.php">Add Product</a></li>
+        <li><a href="./pages/editQuantity/edit_quantity.php">Edit Quantity</a></li>
         <?php
         if (isset($_SESSION['username'])) {
-          echo '<li><a href="account_admin.php">My Account</a></li>';
-          echo '<li><a href="logout.php">Log Out</a></li>';
+          echo '<li><a href="./pages/account/account_admin.php">My Account</a></li>';
+          echo '<li><a href="../components/logout.php">Log Out</a></li>';
         } else {
-          echo '<li><a href="login.php">Log In</a></li>';
-          echo '<li><a href="register.php">Register</a></li>';
+          echo '<li><a href="../pages/login/login.php">Log In</a></li>';
         }
         ?>
       </ul>
@@ -76,19 +75,19 @@ include 'config.php';
         <!-- Small boxes (Stat box) -->
         <div class="row">
           <div class="col-sm-9">
-            <a href="add_product.php">
+            <a href="./pages/addProduct/add_product.php">
               <button>Add Products</button>
             </a>
             <hr>
           </div>
           <div class="col-sm-9">
-            <a href="edit_quantity.php">
+            <a href="./pages/editQuantity/edit_quantity.php">
               <button>Edit Quantity</button>
             </a>
             <hr>
           </div>
           <div class="col-sm-9">
-            <a href="account_admin.php">
+            <a href="./pages/account/account_admin.php">
               <button>My Account</button>
             </a>
             <hr>

@@ -27,8 +27,6 @@ if (isset($_SESSION['cart'])) {
     if ($result) {
 
       if ($obj = $result->fetch_object()) {
-        $_SESSION['orders'][$product_id]++;
-
         $cost = $obj->price * $quantity;
 
         $user = $_SESSION["username"];

@@ -24,11 +24,11 @@ if (session_id() == '' || !isset($_SESSION)) {
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="../../../css/style.css" />
 
-  <link rel="stylesheet" href="css/general.css" />
+  <link rel="stylesheet" href="../../../css/general.css" />
   <title>HKT Shop</title>
-  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="../../../css/foundation.css" />
 </head>
 
 <body>
@@ -36,7 +36,7 @@ if (session_id() == '' || !isset($_SESSION)) {
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
-        <h1><a href="index.php">HKT Shop</a></h1>
+        <h1><a href="../../admin.php">HKT Shop</a></h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
     </ul>
@@ -44,17 +44,16 @@ if (session_id() == '' || !isset($_SESSION)) {
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-        <li><a href="admin.php">Home</a></li>
-        <li><a href="add_product.php">Add Product</a></li>
-        <li><a href="edit_quantity.php">Edit Quantity</a></li>
+        <li><a href="../../admin.php">Home</a></li>
+        <li><a href="../addProduct/add_product.php">Add Product</a></li>
+        <li><a href="../editQuantity/edit_quantity.php">Edit Quantity</a></li>
         <?php
 
         if (isset($_SESSION['username'])) {
-          echo '<li class="active"><a href="account_admin.php">My Account</a></li>';
-          echo '<li><a href="logout.php">Log Out</a></li>';
+          echo '<li><a href="../account/account_admin.php">My Account</a></li>';
+          echo '<li><a href="../../../components/logout.php">Log Out</a></li>';
         } else {
-          echo '<li><a href="login.php">Log In</a></li>';
-          echo '<li><a href="register.php">Register</a></li>';
+          echo '<li><a href="../../../pages/login/login.php">Log In</a></li>';
         }
         ?>
       </ul>

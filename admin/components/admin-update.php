@@ -6,10 +6,10 @@ if (session_id() == '' || !isset($_SESSION)) {
 }
 
 if ($_SESSION["type"] != "admin") {
-  header("location:index.php");
+  header("location:../../index.php");
 }
 
-include 'config.php';
+include '../../database/config.php';
 
 $_SESSION["products_id"] = array();
 $_SESSION["products_id"] = $_REQUEST['quantity'];
@@ -27,7 +27,8 @@ if ($result) {
     } else {
       $newqty = $obj->qty + $_SESSION["products_id"][$i];
       if ($newqty < 0) $newqty = 0; //So, Qty will not be in negative.
-      $update = $mysqli->query("UPDATE products SET qty =" . $newqty . " WHERE id =" . $x);
+      $update = $mysqli->query("UPDATE products SET qty =" . $newqty . " WHERE id =" . $x . "");
+
       if ($update)
         echo 'Data Updated';
 
@@ -39,4 +40,4 @@ if ($result) {
 
 
 
-header("location:success.php");
+header("location:../pages/editQuantity/edit_quantity.php");

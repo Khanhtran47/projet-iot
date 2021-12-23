@@ -1,6 +1,6 @@
 <?php
 
-include 'config.php';
+include '../../database/config.php';
 
 $product_code = $_POST['product_code'];
 $price = $_POST['price'];
@@ -19,4 +19,4 @@ $result = "INSERT INTO products (product_code, product_name, product_desc, produ
 
 $mysqli->query($result);
 
-header('location: products_show.php');
+header('location: ../pages/product/products_show.php');
