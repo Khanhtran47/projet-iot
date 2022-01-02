@@ -191,23 +191,8 @@ if (session_id() == '' || !isset($_SESSION)) {
           <div class="meal-content">
             <div class="meal-tags">
               <span class="tag tag--vegetarian">Front-end</span>
-              <span class="tag tag--paleo">Content</span>
             </div>
             <p class="meal-title">NGUYEN Khac Nhat Hung</p>
-            <ul class="meal-attributes">
-              <li class="meal-attribute">
-                <img class="meal-icon" src="img/icon/flame-outline.svg" />
-                <span><strong>content</strong> content</span>
-              </li>
-              <li class="meal-attribute">
-                <img class="meal-icon" src="img/icon/restaurant-outline.svg" />
-                <span>some contents<strong> some numbers </strong></span>
-              </li>
-              <li class="meal-attribute">
-                <img class="meal-icon" src="img/icon/star-outline.svg" />
-                <span><strong>blabla</strong> big content </span>
-              </li>
-            </ul>
           </div>
         </div>
 
@@ -216,23 +201,9 @@ if (session_id() == '' || !isset($_SESSION)) {
           <div class="meal-content">
             <div class="meal-tags">
               <span class="tag tag--vegan">Full Stack</span>
-              <span class="tag tag--paleo">Content</span>
+              <span class="tag tag--paleo">Tester</span>
             </div>
             <p class="meal-title">TRAN Duc Khanh</p>
-            <ul class="meal-attributes">
-              <li class="meal-attribute">
-                <img class="meal-icon" src="img/icon/flame-outline.svg" />
-                <span><strong>content</strong> some contents </span>
-              </li>
-              <li class="meal-attribute">
-                <img class="meal-icon" src="img/icon/restaurant-outline.svg" />
-                <span>Contents &reg; <strong> big numbers content</strong></span>
-              </li>
-              <li class="meal-attribute">
-                <img class="meal-icon" src="img/icon/star-outline.svg" />
-                <span><strong>number content</strong> content</span>
-              </li>
-            </ul>
           </div>
         </div>
 
@@ -243,20 +214,6 @@ if (session_id() == '' || !isset($_SESSION)) {
               <span class="tag tag--vegan">Modbus</span>
             </div>
             <p class="meal-title">NGUYEN Van Thao</p>
-            <ul class="meal-attributes">
-              <li class="meal-attribute">
-                <img class="meal-icon" src="img/icon/flame-outline.svg" />
-                <span><strong>content</strong> contents</span>
-              </li>
-              <li class="meal-attribute">
-                <img class="meal-icon" src="img/icon/restaurant-outline.svg" />
-                <span>big contents &reg; <strong>number content</strong></span>
-              </li>
-              <li class="meal-attribute">
-                <img class="meal-icon" src="img/icon/star-outline.svg" />
-                <span><strong>some contents</strong> CONTENTS</span>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
