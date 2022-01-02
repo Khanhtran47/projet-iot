@@ -108,10 +108,9 @@ include '../../database/config.php';
           }
           echo '</div>';
           echo '<p class="product-card-name">' . $obj->product_name . '</p>';
-          echo '<p class="product-card-name">Product Code: ' . $obj->product_code . '</p>';
-          echo '<p class="product-card-name">Units Available: ' . $obj->qty . '</p>';
+          echo '<p class="product-card-name">Available: ' . $obj->qty . '</p>';
           echo '<div class="product-card-price">';
-          echo '<span class="curr-price">Price (Per Unit): ' . $currency . $obj->price . '</span>';
+          echo '<span class="curr-price">' . $currency . $obj->price . '</span>';
           echo '</div>';
           echo '</div>';
           echo '</div>';
