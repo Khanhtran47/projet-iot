@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
 <body>
   <header class="header">
     <a href="../../index.php">
-      <img class="logo" alt="Genshin Logo" src="https://webstatic-sea.mihoyo.com/upload/event/2021/10/12/af8f45f5d1a34eb13aa2c70a2af59d05_6274939367807151451.png" />
+      <img class="logo" alt="Genshin Logo" src="../../img/logo.png" />
     </a>
 
     <nav class="main-nav">
