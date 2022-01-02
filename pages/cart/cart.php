@@ -100,7 +100,6 @@ include '../../database/config.php';
             echo '<div class="description">';
             echo '<span>' . $obj->product_name . '</span>';
             echo '<span>' . $obj->product_code . '</span>';
-            echo '<span>' . $obj->product_desc . '</span>';
             echo '</div>';
 
             echo '<div class="quantity">';
