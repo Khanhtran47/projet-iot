@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2021 at 12:29 AM
+-- Generation Time: Jan 02, 2022 at 06:49 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -39,26 +39,6 @@ CREATE TABLE `orders` (
   `email` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `product_code`, `product_name`, `product_desc`, `price`, `units`, `total`, `date`, `email`) VALUES
-(12, 'BOLT2', 'Cap', 'A sleek, tonal stitched cap for runners. The plain texture and unique design will help runners to concentrate more on running and less on their hair. The combbination of casual and formal look is just brilliant.', 200, 4, 800, '2021-11-10 11:00:50', 'tranduckhanh23@gmail.com'),
-(13, 'BOLT3', 'Sports Band', 'The Sports Band collection features highly polished stainless steel and space black stainless steel cases. The display is protected by sapphire crystal. And there is a choice of three different leather bands.', 1000, 3, 3000, '2021-11-10 11:01:21', 'tranduckhanh23@gmail.com'),
-(14, 'BOLT1', 'Sports Shoes', 'With a clean vamp, tonal stitch details throughout, and a unique formstripe finish, the all new sports shoes fits the needs of multiple running consumers by offering an athletic and a lifestyle look.', 5000, 3, 15000, '2021-11-10 13:32:32', 'sjobs@apple.com'),
-(15, 'BOLT2', 'Cap', 'A sleek, tonal stitched cap for runners. The plain texture and unique design will help runners to concentrate more on running and less on their hair. The combbination of casual and formal look is just brilliant.', 200, 4, 800, '2021-11-10 22:00:05', 'tranduckhanh23@gmail.com'),
-(16, 'BOLT3', 'Sports Band', 'The Sports Band collection features highly polished stainless steel and space black stainless steel cases. The display is protected by sapphire crystal. And there is a choice of three different leather bands.', 1000, 4, 4000, '2021-11-10 22:00:05', 'tranduckhanh23@gmail.com'),
-(17, 'BOLT3', 'Sports Band', 'The Sports Band collection features highly polished stainless steel and space black stainless steel cases. The display is protected by sapphire crystal. And there is a choice of three different leather bands.', 1000, 1, 1000, '2021-11-30 13:47:05', 'tranduckhanh23@gmail.com'),
-(18, 'BOLT3', 'Sports Band', 'sngdzn', 1000, 4, 4000, '2021-12-08 17:02:02', 'tranduckhanh23@gmail.com'),
-(19, 'BOLT2', 'Cap', 'gdsnzg', 200, 4, 800, '2021-12-13 08:19:32', 'tranduckhanh23@gmail.com'),
-(20, 'BOLT2', 'Cap', 'gdsnzg', 200, 2, 400, '2021-12-19 17:16:16', 'tranduckhanh23@gmail.com'),
-(21, 'BOL6', 'fdgbs', 'dnszg', 50, 3, 150, '2021-12-19 17:16:16', 'tranduckhanh23@gmail.com'),
-(22, 'BOL6', 'fdgbs', 'dnszg', 50, 1, 50, '2021-12-19 18:28:44', 'tranduckhanh23@gmail.com'),
-(23, 'BOL6', 'fdgbs', 'dnszg', 50, 6, 300, '2021-12-19 19:36:40', 'tranduckhanh23@gmail.com'),
-(24, 'BOLT7', 'fdgbs', ' dgnsf\r\n', 20, 5, 100, '2021-12-19 19:45:14', 'tranduckhanh23@gmail.com'),
-(25, 'BOL4', 'jhbhh', 'jgkvug', 20, 7, 140, '2021-12-19 19:45:14', 'tranduckhanh23@gmail.com');
-
 -- --------------------------------------------------------
 
 --
@@ -80,12 +60,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `product_code`, `product_name`, `product_desc`, `product_img_name`, `qty`, `price`) VALUES
-(2, 'BOLT2', 'Cap', 'gdsnzg', 'uploads/product-01.jpg', 8, '200.00'),
-(47, 'BOL6', 'fdgbs', 'dnszg', 'uploads/product-02.jpg', 0, '50.00'),
-(49, 'BOLT7', 'fdgbs', ' dgnsf\r\n', 'uploads/product-03.jpg', 15, '20.00'),
-(51, 'BOL4', 'jhbhh', 'jgkvug', 'uploads/product-04.jpg', 23, '20.00'),
-(52, 'BOLT5', 'mnbm ,g', 'jh hg', 'uploads/product-05.jpg', 20, '30.00'),
-(53, 'BOLT1', 'vov', 'hgyk', 'uploads/product-06.jpg', 30, '52.00');
+(1, 'BOLT1', 'Gaming/sim station', '	AMD Ryzen 9 5900X 3.7 GHz 12-Core Processor, 	EK EK-AIO 360 D-RGB 66.04 CFM Liquid CPU Cooler, 	Asus ROG STRIX B550-A GAMING ATX AM4 Motherboard, 	Asus ROG STRIX B550-A GAMING ATX AM4 Motherboard...', 'uploads/product-01.jpg', 4, '5558.00'),
+(2, 'BOLT2', 'Corsair build with the 4000D', '	AMD Ryzen 5 5600X 3.7 GHz 6-Core Processor, 	Corsair iCUE H100i ELITE CAPELLIX 75 CFM Liquid CPU Cooler, 	Asus PRIME X570-PRO ATX AM4 Motherboard, 	Corsair Vengeance RGB Pro SL 32 GB (4 x 8 GB) DDR4-3200 CL16 Memory...', 'uploads/product-02.jpg', 6, '3119.00'),
+(3, 'BOLT3', 'PCMR 2K20 Corsair Build', '	Intel Core i9-9900KF 3.6 GHz 8-Core Processor, 	Corsair H150i PRO 47.3 CFM Liquid CPU Cooler, 	Corsair Vengeance RGB 16 GB (2 x 8 GB) DDR4-3000 CL15 Memory...', 'uploads/product-03.jpg', 9, '2319.00'),
+(4, 'BOLT4', 'JASP', '	Intel Core i9-9900K 3.6 GHz 8-Core Processor, 	Asus ROG MAXIMUS XI GENE Micro ATX LGA1151 Motherboard, 	G.Skill Trident Z Royal 16 GB (2 x 8 GB) DDR4-4000 CL18 Memory, 	Sabrent Rocket 1 TB M.2-2280 NVME Solid State Drive...', 'uploads/product-04.jpg', 7, '2123.00'),
+(5, 'BOLT5', '21 Vision', '	AMD Ryzen 5 5600X 3.7 GHz 6-Core Processor, 	NZXT Kraken X73 73.11 CFM Liquid CPU Cooler, 	Gigabyte X570 AORUS PRO WIFI ATX AM4 Motherboard, 	G.Skill Trident Z Neo 16 GB (2 x 8 GB) DDR4-3600 CL16 Memory...', 'uploads/product-05.jpg', 8, '2234.00'),
+(6, 'BOLT6', 'Lian Li Mesh 2', '	AMD Ryzen 5 3600 3.6 GHz 6-Core Processor, 	Cooler Master MasterAir MA410M 53.38 CFM CPU Cooler, 	Asus ROG STRIX B550-F GAMING ATX AM4 Motherboard, 	Kingston HyperX Fury RGB 32 GB (4 x 8 GB) DDR4-3200 CL16 Memory...', 'uploads/product-06.jpg', 1, '4784.00'),
+(7, 'BOLT7', 'EK Quantum Lian Li Dynamic XL', '	Intel Core i9-12900K 3.2 GHz 16-Core Processor, 	MSI MPG Z690 EDGE WIFI DDR4 ATX LGA1700 Motherboard, 	G.Skill Trident Z RGB 32 GB (2 x 16 GB) DDR4-3200 CL14 Memory...', 'uploads/product-07.jpg', 0, '6749.00'),
+(8, 'BOLT8', 'Zee’s Toaster', '	Intel Core i9-12900K 3.2 GHz 16-Core Processor, 	Corsair iCUE H150i ELITE LCD 58.1 CFM Liquid CPU Cooler, 	Asus ROG MAXIMUS Z690 EXTREME EATX LGA1700 Motherboard, 	Corsair Dominator Platinum RGB 32 GB (2 x 16 GB) DDR5-5200 CL38 Memory...', 'uploads/product-08.jpg', 0, '9508.00'),
+(9, 'BOLT9', 'Acid', '	AMD Ryzen 9 5900X 3.7 GHz 12-Core Processor, 	Gigabyte B550 VISION D-P ATX AM4 Motherboard, 	G.Skill Trident Z Royal 32 GB (2 x 16 GB) DDR4-4000 CL16 Memory...', 'uploads/product-09.jpg', 10, '3910.00'),
+(10, 'BOLT10', 'Orion', '	AMD Ryzen 9 5900X 3.7 GHz 12-Core Processor, 	Corsair H100i RGB PLATINUM SE 63 CFM Liquid CPU Cooler, Asus ROG Crosshair VIII Dark Hero ATX AM4 Motherboard, 	Corsair Vengeance RGB Pro 16 GB (2 x 8 GB) DDR4-3200 CL16 Memory...', 'uploads/product-10.jpg', 0, '3523.00');
 
 -- --------------------------------------------------------
 
@@ -111,9 +95,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `address`, `city`, `pin`, `email`, `password`, `type`) VALUES
 (1, 'tran', 'duc khanh', 'dddddd', 'dddddddd', 11111, 'tranduckhanh@gmail.com', 'tranduckhanh', 'admin'),
-(3, 'TRAN', 'Khanh', '15 avenue du Maréchal Foch', 'Blois', 41000, 'tranduckhanh23@gmail.com', 'tranduckhanh', 'user'),
-(4, 'TRAN', 'Khanh', '15 avenue du Maréchal Foch', 'Blois', 41000, 'tranduckhanh34@gmail.com', 'tranduckhanh', 'user'),
-(5, 'TRAN', 'Khanh', '15 avenue du Maréchal Foch', 'Blois', 41000, 'tranduckhanh45@gmail.com', 'tranduckhanh', 'user');
+(2, 'TRAN', 'Khanh', '15 avenue du Maréchal Foch', 'Blois', 41000, 'tranduckhanh23@gmail.com', 'tranduckhanh', 'user'),
+(3, 'TRAN', 'Khanh', '15 avenue du Maréchal Foch', 'Blois', 41000, 'tranduckhanh34@gmail.com', 'tranduckhanh', 'user'),
+(4, 'TRAN', 'Khanh', '15 avenue du Maréchal Foch', 'Blois', 41000, 'tranduckhanh45@gmail.com', 'tranduckhanh', 'user'),
+(5, 'haha', 'hihi', '15 avenue du Maréchal Foch', 'Blois', 41000, '', '', 'user');
 
 --
 -- Indexes for dumped tables
@@ -147,13 +132,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`

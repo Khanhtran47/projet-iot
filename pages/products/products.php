@@ -68,8 +68,8 @@ include '../../database/config.php';
 
     <div class="viewport-header">
       <h1>
-        Heading
-        <span>Cillum deserunt minim pariatur amet aliquip aliquip.</span>
+        Completed Builds
+        <span>PICK PARTS.BUILD YOUR PC.COMPARE AND SHARE.</span>
       </h1>
       <a href="#products" class="btn-flat btn-hover btn-shop">Shop now</a>
     </div>
