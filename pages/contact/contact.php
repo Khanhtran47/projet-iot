@@ -89,6 +89,7 @@ if (isset($_POST['submit'])) {
 
         if (isset($_SESSION['username'])) {
           echo '<li><a href="../orders/orders.php" class="main-nav-link">My Orders</a></li>';
+          echo '<li><a href="../pc-care/pc-care.php" class="main-nav-link">My Device</a></li>';
           echo '<li><a href="../myAccount/account.php" class="main-nav-link">My Account</a></li>';
           echo '<li><a href="../../components/logout.php" class="main-nav-link">Log Out</a></li>';
         } else {
@@ -218,8 +219,8 @@ if (isset($_POST['submit'])) {
               +33 123 45 67 89
             </a>
             <br />
-            <a class="footer-link" href="mailto:hungc4k43@gmail.com">
-              hungc4k43@gmail.com
+            <a class="footer-link" href="mailto:hktech.iot@gmail.com">
+              hktech.iot@gmail.com
             </a>
           </p>
         </address>

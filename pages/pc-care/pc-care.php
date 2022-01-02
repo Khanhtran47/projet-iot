@@ -5,11 +5,40 @@ if (session_id() == '' || !isset($_SESSION)) {
   session_start();
 }
 
-if (isset($_SESSION["username"])) {
-
-  header("location:../../index.php");
+function Read_Temperature($ip, $port, $adr, $nRegist)
+{
+  require_once '../../ModbusMaster/ModbusMaster.php';
+  try {
+    $modbus = new ModbusMaster($ip, "TCP", $port); //créer un trame Modbus
+    $recData = $modbus->readMultipleRegisters(1, $nRegist, $adr);
+    $val16bits = $recData[0] * 256 + $recData[1]; //Calcul de la valeur du mot
+    return $val16bits;
+  } catch (Exception $e) {
+    if ($nRegist == 61) {
+      return 2;
+    }
+    if ($nRegist == 59) {
+      return 2;
+    } else {
+      echo "Aucune sonde de température n'est détecté";
+    }
+  }
 }
 
+function Lecture_Temperature($numerodesond)
+{
+  try {
+    $temperature_sonde = Read_Temperature("192.168.52.232", 502, 1, 15 + $numerodesond) / 10; //Lire le registre de la sonde
+    return $temperature_sonde;
+  }
+  #S'il y a une erreur alors on affiche qu'il y a un problème
+  catch (Exception $e) {
+    echo "Problème de lecture de la température pour enregistrer";
+  }
+}
+
+// $mot_a_lire = (Read_Temperature("192.168.52.232", 502, 1, 16)) / 10;
+//$tmp = Lecture_Temperature(1);
 ?>
 
 <!DOCTYPE html>
@@ -27,19 +56,16 @@ if (isset($_SESSION["username"])) {
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="../../css/grid.css" />
-
-  <link rel="stylesheet" href="login.css" />
-
-
+  <link rel="stylesheet" href="./pc-care.css">
   <title>High Knowledge Technology</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
-  <header class="header" style="background : black">
-    <a href="../../index.php">
-      <img class="logo" alt="Genshin Logo" src="https://webstatic-sea.mihoyo.com/upload/event/2021/10/12/af8f45f5d1a34eb13aa2c70a2af59d05_6274939367807151451.png" />
+  <header class="header">
+    <a href="index.php">
+      <img class="logo" alt="Logo" src="https://webstatic-sea.mihoyo.com/upload/event/2021/10/12/af8f45f5d1a34eb13aa2c70a2af59d05_6274939367807151451.png" />
     </a>
 
     <nav class="main-nav">
@@ -67,48 +93,65 @@ if (isset($_SESSION["username"])) {
     </button>
   </header>
 
-  <div class="container-form" id="containerSignIn">
-    <div class="form-container sign-up-container">
-      <form method="POST" class="cta-form" action="../../components/insert.php" netlify>
-        <h1>Create Account</h1>
-        <span>Use your email for registration</span>
-        <div class="flex">
-          <input type="text" placeholder="First Name" name="fname">
-          <input type="text" id="right-label" placeholder="Last Name" name="lname">
-        </div>
-        <input type="text" id="right-label" placeholder="Address" name="address">
-        <div class="flex">
-          <input type="text" id="right-label" placeholder="City" name="city">
-          <input type="number" id="right-label" placeholder="Code Postal" name="pin">
-        </div>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Sign Up</button>
+  <?php
+
+  if (array_key_exists('button1', $_POST)) {
+    Allumer_Ventilateur();
+  }
+  if (array_key_exists('button2', $_POST)) {
+    Eteindre_Ventilateur();
+  }
+  if (array_key_exists('button3', $_POST)) {
+    Allumer_Resistance();
+  }
+  if (array_key_exists('button4', $_POST)) {
+    Eteindre_Resistance();
+  }
+
+  function Allumer_Ventilateur()
+  {
+    Ecrire_mot("192.168.52.232", 502, 4, 1);
+  }
+  function Eteindre_Ventilateur()
+  {
+    Ecrire_mot("192.168.52.232", 502, 4, 0);
+  }
+  function Allumer_Resistance()
+  {
+    Ecrire_mot("192.168.52.232", 502, 5, 1);
+  }
+  function Eteindre_Resistance()
+  {
+    Ecrire_mot("192.168.52.232", 502, 5, 0);
+  }
+  function Ecrire_mot($ip, $port, $adr, $value)
+  {
+    require_once '../../ModbusMaster/ModbusMaster.php';
+    $modbus = new ModbusMaster($ip, "TCP", $port);
+    $data = array($value);
+    $dataType = array("WORD");
+    $modbus->writeMultipleRegister(0, $adr, $data, $dataType); // envoi de l'ordre pour allumer le ventilateur
+  }
+  ?>
+
+  <section id="container">
+    <div class="left-side" id="left-side">
+      <h4>
+        Ventilateur
+      </h4>
+
+      <form method="post" class="fan-control">
+        <input type="submit" name="button1" class="button" value="Allumer Ventilateur" />
+        <input type="submit" name="button2" class="button" value="Eteindre Ventilateur" />
+        <input type="submit" name="button3" class="button" value="Allumer Resistance" />
+        <input type="submit" name="button4" class="button" value="Eteindre Resistance" />
       </form>
     </div>
-    <div class="form-container sign-in-container">
-      <form method="POST" class="cta-form" action="../../components/verify.php" netlify>
-        <h1>Sign in</h1>
-        <input id="right-label" type="email" name="username" placeholder="Email" required />
-        <input id="right-label" type="password" name="pwd" placeholder="Password" required />
-        <button>Sign In</button>
-      </form>
+
+    <div class="right-side" id="right-side">
+
     </div>
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-left">
-          <h1>Welcome Back!</h1>
-          <p>To keep connected with us please login with your personal info</p>
-          <button class="ghost" id="signIn">Sign In</button>
-        </div>
-        <div class="overlay-panel overlay-right">
-          <h1>Hello, Friend!</h1>
-          <p>Enter your personal details and start journey with us</p>
-          <button class="ghost" id="signUp">Sign Up</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  </section>
 
   <footer class="footer">
     <div class="container grid grid--footer">
@@ -136,7 +179,8 @@ if (isset($_SESSION["username"])) {
         </ul>
 
         <p class="copyright">
-          Copyright &copy; <span class="year">2027</span> by HKT, Inc. All rights reserved.
+          Copyright &copy; <span class="year">2027</span> by HKT, Inc. All
+          rights reserved.
         </p>
       </div>
 
@@ -145,13 +189,8 @@ if (isset($_SESSION["username"])) {
         <address class="contacts">
           <p class="address">15 avenue Maréchal Foch, 41000 Blois, France</p>
           <p>
-            <a class="footer-link" href="tel:+33 123 45 67 89">
-              +33 123 45 67 89
-            </a>
-            <br />
-            <a class="footer-link" href="mailto:hktech.iot@gmail.com">
-              hktech.iot@gmail.com
-            </a>
+            <a class="footer-link" href="tel:+33 123 45 67 89">+33 123 45 67 89</a><br />
+            <a class="footer-link" href="mailto:hktech.iot@gmail.com">hktech.iot@gmail.com</a>
           </p>
         </address>
       </div>
@@ -186,18 +225,21 @@ if (isset($_SESSION["username"])) {
     </div>
   </footer>
   <script type="text/javascript">
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('containerSignIn');
+    // function refreshDiv() {
+    //   $('#left-side').load(location.href + " #left-side");
+    //   $('#right-side').load(location.href + " #right-side");
+    // }
+    function loadlink() {
+      $('#right-side').load('./right-side.php');
+      $('#trafficlight').load('./trafficlight.php');
+    }
 
-    signUpButton.addEventListener('click', () => {
-      container.classList.add("right-panel-active");
-    });
-
-    signInButton.addEventListener('click', () => {
-      container.classList.remove("right-panel-active");
-    });
+    loadlink(); // This will run on page load
+    setInterval(function() {
+      loadlink() // this will run after every 5 seconds
+    }, 2000);
   </script>
+
 </body>
 
 </html>

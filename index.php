@@ -44,6 +44,7 @@ if (session_id() == '' || !isset($_SESSION)) {
 
         if (isset($_SESSION['username'])) {
           echo '<li><a href="./pages/orders/orders.php" class="main-nav-link">My Orders</a></li>';
+          echo '<li><a href="./pages/pc-care/pc-care.php" class="main-nav-link">My Device</a></li>';
           echo '<li><a href="pages/myAccount/account.php" class="main-nav-link">My Account</a></li>';
           echo '<li><a href="components/logout.php" class="main-nav-link">Log Out</a></li>';
         } else {
@@ -549,7 +550,7 @@ if (session_id() == '' || !isset($_SESSION)) {
           <p class="address">15 avenue Maréchal Foch, 41000 Blois, France</p>
           <p>
             <a class="footer-link" href="tel:+33 123 45 67 89">+33 123 45 67 89</a><br />
-            <a class="footer-link" href="mailto:hungc4k43@gmail.com">hungc4k43@gmail.com</a>
+            <a class="footer-link" href="mailto:hktech.iot@gmail.com">hktech.iot@gmail.com</a>
           </p>
         </address>
       </div>
