@@ -163,7 +163,7 @@ include '../../database/config.php';
     <div class="container grid grid--footer">
       <div class="logo-col">
         <a href="#" class="footer-logo">
-          <img class="logo" alt="HKT logo" src="#" />
+          <img class="logo-footer" alt="HKT logo" src="../../img/logo.png" />
         </a>
 
         <ul class="social-links">

@@ -184,7 +184,7 @@ if (isset($_POST['submit'])) {
     <div class="container grid grid--footer">
       <div class="logo-col">
         <a href="#" class="footer-logo">
-          <img class="logo" alt="HKGT logo" src="#" />
+          <img class="logo-footer" alt="HKGT logo" src="../../img/logo.png" />
         </a>
 
         <ul class="social-links">

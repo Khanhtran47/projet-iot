@@ -340,6 +340,10 @@ input:focus {
   margin-bottom: 2rem;
 }
 
+.logo-footer {
+  height: 14rem;
+}
+
 .social-links {
   list-style: none;
   display: flex;
