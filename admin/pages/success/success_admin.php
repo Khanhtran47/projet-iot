@@ -23,57 +23,40 @@ if (session_id() == '' || !isset($_SESSION)) {
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="../../../css/style.css" />
-
-  <link rel="stylesheet" href="../../../css/general.css" />
+  <link rel="stylesheet" href="../../../css/grid.css" />
+  <link rel="stylesheet" href="./success_admin.css" />
   <title>HKT Shop</title>
-  <link rel="stylesheet" href="../../../css/foundation.css" />
 </head>
 
 <body>
 
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="../../admin.php">HKT Shop</a></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-    </ul>
+  <header class="header">
+    <a href="#" class="main-nav-link">Dashboard <small>Control Panel</small></a>
 
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li><a href="../../admin.php">Home</a></li>
-        <li><a href="../addProduct/add_product.php">Add Product</a></li>
-        <li><a href="../editQuantity/edit_quantity.php">Edit Quantity</a></li>
+    <nav class="main-nav">
+      <ul class="main-nav-list">
+        <li><a href="../../admin.php" class="main-nav-link">Home</a></li>
+        <li><a href="../product/products_show.php" class="main-nav-link">All Products</a></li>
+        <li><a href="../addProduct/add_product.php" class="main-nav-link">Add Product</a></li>
+        <li><a href="../editQuantity/edit_quantity.php" class="main-nav-link">Edit Quantity</a></li>
         <?php
-
         if (isset($_SESSION['username'])) {
-          echo '<li><a href="../account/account_admin.php">My Account</a></li>';
-          echo '<li><a href="../../../components/logout.php">Log Out</a></li>';
+          echo '<li><a href="../account/account_admin.php" class="main-nav-link">My Account</a></li>';
+          echo '<li><a href="../../../components/logout.php" class="main-nav-link">Log Out</a></li>';
         } else {
-          echo '<li><a href="../../../pages/login/login.php">Log In</a></li>';
+          echo '<li><a href="../../../pages/login/login.php" class="main-nav-link">Log In</a></li>';
         }
         ?>
       </ul>
-    </section>
-  </nav>
+    </nav>
+  </header>
 
-
-
-
-  <div class="row" style="margin-top:10px;">
-    <div class="small-12">
-      <p>Success. Whatever task you performed, has been executed successfully. Congrats!</p>
-      <p>In case you purchased a product, then please check your spam in email for the receipt.</p>
-
-
-      <footer style="margin-top:10px;">
-        <p style="text-align:center; font-size:0.8em;">&copy; HKT Shop. All Rights Reserved.</p>
-      </footer>
-
+  <div class="card">
+    <div class="border">
+      <i class="checkmark">✓</i>
     </div>
+    <h1>Success</h1>
+    <p>We received your purchase request.<br /> Please check your spam in email for the receipt.</p>
   </div>
 </body>
 

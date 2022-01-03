@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+  background-color: #f3f3f3;
+}
+
+body,
+input,
+textarea {
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+/**************************/
+/* HEADER */
+/**************************/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.727) !important;
+  height: 6rem;
+  padding: 0 0.65rem;
+  position: relative;
+  width: 100%;
+}
+
+.logo {
+  height: 4.5rem;
+}
+
+/**************************/
+/* NAVIGATION */
+/**************************/
+
+.main-nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.95rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: rgb(233, 233, 233);
+  font-weight: 500;
+  font-size: 1.125rem;
+  transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #c91fdc;
+}
+
+.row {
+  width: 850px;
+  min-height: 50vh;
+  height: auto;
+  margin: 130px auto;
+  background: #0f6f5c;
+  background: -webkit-linear-gradient(to right, #1abc9c, #0f6f5c);
+  background: linear-gradient(to right, #1abc9c, #0f6f5c);
+  border-radius: 6px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid;
+  color: #fff;
+  font-size: 12px;
+  font-weight: normal;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  background-color: transparent;
+  border-color: #fff;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  border-color: #1abc9c;
+  background-color: #1abc9c;
+  color: #fff;
+}

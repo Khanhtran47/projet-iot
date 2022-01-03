@@ -23,53 +23,42 @@ include '../../../database/config.php';
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="../../../css/style.css" />
-
-  <link rel="stylesheet" href="../../../css/general.css" />
+  <link rel="stylesheet" href="../../../css/grid.css" />
+  <link rel="stylesheet" href="./products.css" />
   <title>Products || HKT Shop</title>
-  <link rel="stylesheet" href="../../../css/foundation.css" />
 </head>
 
 <body>
 
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="../../admin.php">HKT Shop</a></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-    </ul>
+  <header class="header">
+    <a href="#" class="main-nav-link">Dashboard <small>Control Panel</small></a>
 
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li><a href="../../admin.php">Home</a></li>
-        <li class="active"><a href="products_show.php">All Products</a></li>
-        <li><a href="../addProduct/add_product.php">Add Product</a></li>
-        <li><a href="../editQuantity/edit_quantity.php">Edit Quantity</a></li>
+    <nav class="main-nav">
+      <ul class="main-nav-list">
+        <li><a href="../../admin.php" class="main-nav-link">Home</a></li>
+        <li><a href="./products_show.php" class="main-nav-link">All Products</a></li>
+        <li><a href="../addProduct/add_product.php" class="main-nav-link">Add Product</a></li>
+        <li><a href="../editQuantity/edit_quantity.php" class="main-nav-link">Edit Quantity</a></li>
         <?php
         if (isset($_SESSION['username'])) {
-          echo '<li><a href="../account/account_admin.php">My Account</a></li>';
-          echo '<li><a href="../../../components/logout.php">Log Out</a></li>';
+          echo '<li><a href="../account/account_admin.php" class="main-nav-link">My Account</a></li>';
+          echo '<li><a href="../../../components/logout.php" class="main-nav-link">Log Out</a></li>';
         } else {
-          echo '<li><a href="../../../pages/login/login.php">Log In</a></li>';
+          echo '<li><a href="../../../pages/login/login.php" class="main-nav-link">Log In</a></li>';
         }
         ?>
       </ul>
-    </section>
-  </nav>
+    </nav>
+  </header>
 
   <div class="row" style="margin-top:10px;">
-    <div class="row">
-      <div class="col-sm-9">
-        <a href="../addProduct/add_product.php">
-          <button>Add Products</button>
-        </a>
-      </div>
+    <div>
+      <a href="../addProduct/add_product.php">
+        <button>Add Products</button>
+      </a>
     </div>
 
-    <div class="small-12">
+    <div class="small">
       <?php
       $i = 0;
       $product_id = array();
@@ -84,15 +73,21 @@ include '../../../database/config.php';
 
         while ($obj = $result->fetch_object()) {
 
-          echo '<div class="large-4 columns">';
+          echo '<div class="columns">';
           echo '<p><h3>' . $obj->product_name . '</h3></p>';
-          echo '<img src="../../../' . $obj->product_img_name . '"/>';
+          echo '<div class="product-img-box">';
+          echo '<img class="product-img" src="../../../' . $obj->product_img_name . '"/>';
+          echo '</div>';
+          echo '<div class="product-info">';
           echo '<p><strong>Product Code</strong>: ' . $obj->product_code . '</p>';
           echo '<p><strong>Description</strong>: ' . $obj->product_desc . '</p>';
           echo '<p><strong>Units Available</strong>: ' . $obj->qty . '</p>';
           echo '<p><strong>Price (Per Unit)</strong>: ' . $currency . $obj->price . '</p>';
+          echo '</div>';
+          echo '<div class="submit">';
           echo '<a href="../productUpdate/product_update.php?up_id=' . $obj->id . '"><input type="submit" value="Updates Product" style="clear:both; background: #0078A0; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a>';
           echo '<a href="../../components/product_delete.php?del_id=' . $obj->id . '"><input type="submit" value="Delete Product" style="clear:both; background: red; border: none; color: #fff; font-size: 1em; padding: 10px;" /></a>';
+          echo '</div>';
 
           echo '</div>';
 
@@ -106,14 +101,6 @@ include '../../../database/config.php';
       echo '</div>';
       echo '</div>';
       ?>
-
-      <div class="row" style="margin-top:10px;">
-        <div class="small-12">
-          <footer style="margin-top:10px;">
-            <p style="text-align:center; font-size:0.8em;clear:both;">&copy; HKT Shop. All Rights Reserved.</p>
-          </footer>
-        </div>
-      </div>
 </body>
 
 </html>

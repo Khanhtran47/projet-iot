@@ -1,7 +1,5 @@
 <?php
 
-//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();} for php 5.4 and above
-
 if (session_id() == '' || !isset($_SESSION)) {
   session_start();
 }
@@ -33,165 +31,77 @@ include '../../../database/config.php';
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../../../css/style.css" />
-
-  <link rel="stylesheet" href="../../../css/general.css" />
+  <link rel="stylesheet" href="../../../css/grid.css" />
+  <link rel="stylesheet" href="./account_admin.css" />
   <title>My Account || HKT Shop</title>
-  <link rel="stylesheet" href="../../../css/foundation.css" />
 </head>
 
 <body>
 
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="#">Dashboard <small>Control Panel</small></a></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-    </ul>
+  <header class="header">
+    <a href="#" class="main-nav-link">Dashboard <small>Control Panel</small></a>
 
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li><a href="../../admin.php">Home</a></li>
-        <li><a href="../product/products_show.php">All Products</a></li>
-        <li><a href="../addProduct/add_product.php">Add Product</a></li>
-        <li><a href="../editQuantity/edit_quantity.php">Edit Quantity</a></li>
+    <nav class="main-nav">
+      <ul class="main-nav-list">
+        <li><a href="../../admin.php" class="main-nav-link">Home</a></li>
+        <li><a href="../product/products_show.php" class="main-nav-link">All Products</a></li>
+        <li><a href="../addProduct/add_product.php" class="main-nav-link">Add Product</a></li>
+        <li><a href="../editQuantity/edit_quantity.php" class="main-nav-link">Edit Quantity</a></li>
         <?php
-
         if (isset($_SESSION['username'])) {
-          echo '<li class="active"><a href="account_admin.php">My Account</a></li>';
-          echo '<li><a href="../../../components/logout.php">Log Out</a></li>';
+          echo '<li><a href=".account_admin.php" class="main-nav-link">My Account</a></li>';
+          echo '<li><a href="../../../components/logout.php" class="main-nav-link">Log Out</a></li>';
         } else {
-          echo '<li><a href="../../../pages/login/login.php">Log In</a></li>';
+          echo '<li><a href="../../../pages/login/login.php" class="main-nav-link">Log In</a></li>';
         }
         ?>
       </ul>
-    </section>
-  </nav>
+    </nav>
+  </header>
 
-  <div class="row" style="margin-top:30px;">
-    <div class="small-12">
-      <p><?php echo '<h3>Hi ' . $_SESSION['fname'] . '</h3>'; ?></p>
-
-      <p>
-      <h4>Account Details</h4>
-      </p>
-
-      <p>Below are your details in the database. If you wish to change anything, then just enter new data in text box and click on update.</p>
-    </div>
-  </div>
-
-
-  <form method="POST" action="../../../components/update.php" style="margin-top:30px;">
-    <div class="row">
-      <div class="small-12">
-        <div class="row">
-          <div class="small-3 columns">
-            <label for="right-label" class="right inline">First Name</label>
-          </div>
-          <div class="small-8 columns end">
-            <?php
-
-            $result = $mysqli->query('SELECT * FROM users WHERE id=' . $_SESSION['id']);
-
-            if ($result === FALSE) {
-              die(printf("Error message: %s\n", $mysqli->error));
-            }
-
-            if ($result) {
-              $obj = $result->fetch_object();
-              echo '<input type="text" id="right-label" placeholder="' . $obj->fname . '" name="fname">';
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Last Name</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-
-              echo '<input type="text" id="right-label" placeholder="' . $obj->lname . '" name="lname">';
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Address</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-              echo '<input type="text" id="right-label" placeholder="' . $obj->address . '" name="address">';
-
-
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">City</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-              echo '<input type="text" id="right-label" placeholder="' . $obj->city . '" name="city">';
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Pin Code</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-
-              echo '<input type="text" id="right-label" placeholder="' . $obj->pin . '" name="pin">';
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Email</label>';
-              echo '</div>';
-
-              echo '<div class="small-8 columns end">';
-
-
-              echo '<input type="email" id="right-label" placeholder="' . $obj->email . '" name="email">';
-
-              echo '</div>';
-              echo '</div>';
-            }
-
-            echo '<div class="row">';
-            echo '<div class="small-3 columns">';
-            echo '<label for="right-label" class="right inline">Password</label>';
-            echo '</div>';
-            echo '<div class="small-8 columns end">';
-            echo '<input type="password" id="right-label" name="pwd">';
-            echo '</div>';
-            echo '</div>';
-            ?>
-
-            <div class="row">
-              <div class="small-4 columns">
-
-              </div>
-              <div class="small-8 columns">
-                <input type="submit" id="right-label" value="Update" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
-                <input type="reset" id="right-label" value="Reset" style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
-              </div>
-            </div>
-          </div>
+  <div class="container-form right-panel-active" id="containerSignIn">
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <?php echo '<h1>Hi! ' . $_SESSION['fname'] . '</h1>' ?>
+          <p>Here are your details in the database. If you wish to change anything, then just enter new data in text box and click on update.</p>
         </div>
-  </form>
-  <div class="row" style="margin-top:30px;">
-    <div class="small-12">
-      <footer>
-        <p style="text-align:center; font-size:0.8em;">&copy; HKT Shop. All Rights Reserved.</p>
-      </footer>
+      </div>
+    </div>
+    <div class="form-container sign-up-container">
+      <form method="POST" class="cta-form" action="../../components/update.php">
+        <h1>Account Detail</h1>
+        <?php
+
+        $result = $mysqli->query('SELECT * FROM users WHERE id=' . $_SESSION['id']);
+
+        if ($result === FALSE) {
+          die(printf("Error message: %s\n", $mysqli->error));
+        }
+
+        if ($result) {
+          $obj = $result->fetch_object();
+
+          echo '<div class="flex">';
+          echo '<input type="text" placeholder="' . $obj->fname . '" name="fname">';
+          echo '<input type="text" id="right-label" placeholder="' . $obj->lname . '" name="lname">';
+          echo '</div>';
+          echo '<input type="text" id="right-label" placeholder="' . $obj->address . '" name="address">';
+          echo '<div class="flex">';
+          echo '<input type="text" id="right-label" placeholder="' . $obj->city . '" name="city">';
+          echo '<input type="number" id="right-label" placeholder="' . $obj->pin . '" name="pin">';
+          echo '</div>';
+          echo '<input type="email" placeholder="' . $obj->email . '" />';
+          echo '<input type="password" name="pwd" placeholder="Password"/>';
+
+          echo '<button type="reset" id="right-label" value="Reset">Reset</button>';
+          echo '<button type="submit" id="right-label" value="Update">Update</button>';
+        }
+        ?>
+      </form>
     </div>
   </div>
+
 </body>
 
 </html>

@@ -31,83 +31,86 @@ include '../../../database/config.php';
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="../../../css/style.css" />
-
-  <link rel="stylesheet" href="../../../css/general.css" />
+  <link rel="stylesheet" href="../../../css/grid.css" />
+  <link rel="stylesheet" href="./edit-quantity.css" />
   <title>Edit Quantity || HKT Shop</title>
-  <link rel="stylesheet" href="../../../css/foundation.css" />
 </head>
 
 <body>
 
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="../../admin.php">Dashboard <small>Control Panel</small></a></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-    </ul>
+  <header class="header">
+    <a href="#" class="main-nav-link">Dashboard <small>Control Panel</small></a>
 
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li><a href="../../admin.php">Home</a></li>
-        <li><a href="../product/products_show.php">All Products</a></li>
-        <li><a href="../addProduct/add_product.php">Add Product</a></li>
-        <li class="active"><a href="edit_quantity.php">Edit Quantity</a></li>
+    <nav class="main-nav">
+      <ul class="main-nav-list">
+        <li><a href="../../admin.php" class="main-nav-link">Home</a></li>
+        <li><a href="../product/products_show.php" class="main-nav-link">All Products</a></li>
+        <li><a href="../addProduct/add_product.php" class="main-nav-link">Add Product</a></li>
+        <li><a href=".edit_quantity.php" class="main-nav-link">Edit Quantity</a></li>
         <?php
-
         if (isset($_SESSION['username'])) {
-          echo '<li><a href="../account/account_admin.php">My Account</a></li>';
-          echo '<li><a href="../../../components/logout.php">Log Out</a></li>';
+          echo '<li><a href="../account/account_admin.php" class="main-nav-link">My Account</a></li>';
+          echo '<li><a href="../../../components/logout.php" class="main-nav-link">Log Out</a></li>';
         } else {
-          echo '<li><a href="../../../pages/login/login.php">Log In</a></li>';
+          echo '<li><a href="../../../pages/login/login.php" class="main-nav-link">Log In</a></li>';
         }
         ?>
       </ul>
-    </section>
-  </nav>
-
+    </nav>
+  </header>
 
   <div class="row" style="margin-top:10px;">
-    <div class="large-12">
+    <div class="small">
       <?php
-      $result = $mysqli->query("SELECT * from products order by id asc");
+      $i = 0;
+      $product_id = array();
+      $product_quantity = array();
+
+      $result = $mysqli->query('SELECT * FROM products');
+      if ($result === FALSE) {
+        die(printf("Error message: %s\n", $mysqli->error));
+      }
+
       if ($result) {
+
         while ($obj = $result->fetch_object()) {
-          echo '<div class="large-4 columns">';
+
+          echo '<div class="columns">';
           echo '<p><h3>' . $obj->product_name . '</h3></p>';
-          echo '<img src="../../../' . $obj->product_img_name . '"/>';
+          echo '<div class="product-img-box">';
+          echo '<img class="product-img" src="../../../' . $obj->product_img_name . '"/>';
+          echo '</div>';
+          echo '<div class="product-info">';
           echo '<p><strong>Product Code</strong>: ' . $obj->product_code . '</p>';
           echo '<p><strong>Description</strong>: ' . $obj->product_desc . '</p>';
           echo '<p><strong>Units Available</strong>: ' . $obj->qty . '</p>';
-          echo '<div class="large-6 columns" style="padding-left:0;">';
-          echo '<form method="post" name="update-quantity" action="../../components/admin-update.php">';
-          echo '<p><strong>New Qty</strong>:</p>';
+          echo '<p><strong>Price (Per Unit)</strong>: ' . $currency . $obj->price . '</p>';
           echo '</div>';
-          echo '<div class="large-6 columns">';
+
+          echo '<div class="column">';
+          echo '<form method="post" name="update-quantity" action="../../components/admin-update.php" class="column">';
+          echo '<p><strong>New Qty</strong>:</p>';
+          echo '<div>';
           echo '<input type="number" name="quantity[]"/>';
 
           echo '</div>';
           echo '</div>';
+
+          echo '</div>';
         }
       }
       ?>
+
+
     </div>
   </div>
 
-
-  <div class="row" style="margin-top:10px;">
-    <div class="small-12">
-      <center>
-        <p><input style="clear:both;" type="submit" class="button" value="Update"></p>
-      </center>
-      </form>
-      <footer style="margin-top:10px;">
-        <p style="text-align:center; font-size:0.8em;">&copy; HKT Shop. All Rights Reserved.</p>
-      </footer>
-    </div>
+  <div class="update">
+    <a href="../addProduct/add_product.php">
+      <button type="submit" value="Update">Update</button>
+    </a>
   </div>
+
 </body>
 
 </html>
