@@ -53,11 +53,6 @@ if (session_id() == '' || !isset($_SESSION)) {
         ?>
       </ul>
     </nav>
-
-    <button class="btn-mobile-nav">
-      <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
-      <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
-    </button>
   </header>
 
   <main>
@@ -118,56 +113,62 @@ if (session_id() == '' || !isset($_SESSION)) {
         <h2 class="heading-primary">Your dream PC in 3 simple steps</h2>
       </div>
 
-      <div class="container grid grid--2-cols grid--center-v scroll-animations">
-        <!-- STEP 01 -->
-        <div class="step-text-box animate__animated">
-          <p class="step-number">01</p>
-          <h3 class="heading-tertiary">We list Components</h3>
-          <p class="step-description">
-            The first thing we do at Build My PC is to search for various
-            computer components, finalize them, and add them to our website.
-            We always try our best to add and update the latest components for
-            you. It can be really helpful for people who came to our Build My
-            PC website just to check the compatibility of the latest products
-            before buying them.
-          </p>
+      <div class="container scroll-animations">
+        <div class="step">
+          <!-- STEP 01 -->
+          <div class="step-text-box animate__animated">
+            <p class="step-number">01</p>
+            <h3 class="heading-tertiary">We list Components</h3>
+            <p class="step-description">
+              The first thing we do at Build My PC is to search for various
+              computer components, finalize them, and add them to our website.
+              We always try our best to add and update the latest components for
+              you. It can be really helpful for people who came to our Build My
+              PC website just to check the compatibility of the latest products
+              before buying them.
+            </p>
+          </div>
+
+          <div class="step-img-box">
+            <img src="img/features/features1.jpg" class="step-img" alt="PC build components" />
+          </div>
         </div>
 
-        <div class="step-img-box">
-          <img src="img/features/features1.jpg" class="step-img" alt="PC build components" />
+        <div class="step step-2">
+          <!-- STEP 02 -->
+          <div class="step-img-box step-img-box-order">
+            <img src="img/features/features2.png" class="step-img" alt="Build your PC" />
+          </div>
+          <div class="step-text-box step-text-box-order animate__animated">
+            <p class="step-number">02</p>
+            <h3 class="heading-tertiary">Build Your PC</h3>
+            <p class="step-description">
+              What’s the reason you’re making this computer? Is it because you
+              want the best gaming PC? Are you looking for something that can
+              handle your creative work, or just want a build that can manage
+              common web browsing? Or do you want a machine that’s as flashy as
+              a nightclub? Maybe it’s a combination of these. In any case, your
+              motivations will influence your decisions when shopping for
+              components.
+            </p>
+          </div>
         </div>
 
-        <!-- STEP 02 -->
-        <div class="step-img-box">
-          <img src="img/features/features2.png" class="step-img" alt="Build your PC" />
-        </div>
-        <div class="step-text-box animate__animated">
-          <p class="step-number">02</p>
-          <h3 class="heading-tertiary">Build Your PC</h3>
-          <p class="step-description">
-            What’s the reason you’re making this computer? Is it because you
-            want the best gaming PC? Are you looking for something that can
-            handle your creative work, or just want a build that can manage
-            common web browsing? Or do you want a machine that’s as flashy as
-            a nightclub? Maybe it’s a combination of these. In any case, your
-            motivations will influence your decisions when shopping for
-            components.
-          </p>
-        </div>
-
-        <!-- STEP 03 -->
-        <div class="step-text-box animate__animated">
-          <p class="step-number">03</p>
-          <h3 class="heading-tertiary">Compare And Share</h3>
-          <p class="step-description">
-            Laborum cillum nulla id enim exercitation. Quis est tempor veniam
-            occaecat cillum non incididunt culpa eu adipisicing do. Duis elit
-            proident exercitation exercitation laboris eu ut officia laboris
-            pariatur id.
-          </p>
-        </div>
-        <div class="step-img-box">
-          <img src="img/features/features3.jpg" class="step-img" alt="Share your PC build" />
+        <div class="step">
+          <!-- STEP 03 -->
+          <div class="step-text-box animate__animated">
+            <p class="step-number">03</p>
+            <h3 class="heading-tertiary">Compare And Share</h3>
+            <p class="step-description">
+              Laborum cillum nulla id enim exercitation. Quis est tempor veniam
+              occaecat cillum non incididunt culpa eu adipisicing do. Duis elit
+              proident exercitation exercitation laboris eu ut officia laboris
+              pariatur id.
+            </p>
+          </div>
+          <div class="step-img-box">
+            <img src="img/features/features3.jpg" class="step-img" alt="Share your PC build" />
+          </div>
         </div>
       </div>
     </section>
@@ -185,7 +186,7 @@ if (session_id() == '' || !isset($_SESSION)) {
         </h4>
       </div>
 
-      <div class="container grid grid--3-cols margin-bottom-md">
+      <div class="container-row margin-bottom-md">
         <div class="meal">
           <img src="img/AboutUs/hung.jpg" class="meal-img" alt="Japanese Gyozas" />
           <div class="meal-content">
@@ -326,17 +327,17 @@ if (session_id() == '' || !isset($_SESSION)) {
             </p>
 
             <form class="cta-form" name="sign-up" netlify>
-              <div>
+              <div class="flex">
                 <label for="full-name">Full Name</label>
                 <input id="full-name" type="text" placeholder="John Smith" name="full-name" required />
               </div>
 
-              <div>
+              <div class="flex">
                 <label for="email">Email address</label>
                 <input id="email" type="email" placeholder="me@example.com" name="email" required />
               </div>
 
-              <div>
+              <div class="flex">
                 <label for="select-where">Where did you hear from us?</label>
                 <select id="select-where" name="select-where" required>
                   <option value="">Please choose one option:</option>
@@ -348,10 +349,7 @@ if (session_id() == '' || !isset($_SESSION)) {
                 </select>
               </div>
 
-              <button class="btn btn--form">Sign up now</button>
-
-              <!-- <input type="checkbox" />
-                <input type="number" /> -->
+              <button class="btn btn--form flex">Sign up now</button>
             </form>
           </div>
           <div class="cta-img-box" role="img" aria-label="Woman enjoying food"></div>
@@ -361,8 +359,8 @@ if (session_id() == '' || !isset($_SESSION)) {
   </main>
 
   <footer class="footer">
-    <div class="container grid grid--footer">
-      <div class="logo-col">
+    <div class="container-footer grid grid--footer">
+      <div class="logo-col col">
         <a href="#" class="footer-logo">
           <img class="logo-footer" alt="HKGT logo" src="./img/logo.png" />
         </a>
@@ -391,7 +389,7 @@ if (session_id() == '' || !isset($_SESSION)) {
         </p>
       </div>
 
-      <div class="address-col">
+      <div class="address-col col">
         <p class="footer-heading">Contact us</p>
         <address class="contacts">
           <p class="address">15 avenue Maréchal Foch, 41000 Blois, France</p>
@@ -402,7 +400,7 @@ if (session_id() == '' || !isset($_SESSION)) {
         </address>
       </div>
 
-      <nav class="nav-col">
+      <nav class="nav-col col ">
         <p class="footer-heading">Account</p>
         <ul class="footer-nav">
           <li><a class="footer-link" href="#">Create account</a></li>
@@ -412,7 +410,7 @@ if (session_id() == '' || !isset($_SESSION)) {
         </ul>
       </nav>
 
-      <nav class="nav-col">
+      <nav class="nav-col col">
         <p class="footer-heading">Company</p>
         <ul class="footer-nav">
           <li><a class="footer-link" href="#">About HKT</a></li>
@@ -422,7 +420,7 @@ if (session_id() == '' || !isset($_SESSION)) {
         </ul>
       </nav>
 
-      <nav class="nav-col">
+      <nav class="nav-col col">
         <p class="footer-heading">Resources</p>
         <ul class="footer-nav">
           <li><a class="footer-link" href="#">Help center</a></li>

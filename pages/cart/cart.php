@@ -52,11 +52,6 @@ include '../../database/config.php';
         ?>
       </ul>
     </nav>
-
-    <button class="btn-mobile-nav">
-      <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
-      <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
-    </button>
   </header>
 
 

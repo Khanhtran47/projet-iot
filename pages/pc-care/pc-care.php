@@ -38,7 +38,7 @@ function Lecture_Temperature($numerodesond)
 }
 
 // $mot_a_lire = (Read_Temperature("192.168.52.232", 502, 1, 16)) / 10;
-//$tmp = Lecture_Temperature(1);
+// $tmp = Lecture_Temperature(1);
 ?>
 
 <!DOCTYPE html>

@@ -84,13 +84,13 @@ ul {
 
   /* Because we want header to be sticky later */
   height: 6rem;
-  padding: 0 3rem;
+  padding: 0 0.65rem;
   position: relative;
   width: 100%;
 }
 
 .logo {
-  height: 16.5rem;
+  height: 4.5rem;
 }
 
 /**************************/
@@ -101,7 +101,7 @@ ul {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 1.95rem;
 }
 
 .main-nav-link:link,
@@ -130,25 +130,6 @@ ul {
 .main-nav-link.nav-cta:hover,
 .main-nav-link.nav-cta:active {
   background-color: #e92bfe;
-}
-
-/* MOBILE */
-.btn-mobile-nav {
-  border: none;
-  background: none;
-  cursor: pointer;
-
-  display: none;
-}
-
-.icon-mobile-nav {
-  height: 3rem;
-  width: 3rem;
-  color: #333;
-}
-
-.icon-mobile-nav[name="close-outline"] {
-  display: none;
 }
 
 .shopping-cart {
@@ -437,7 +418,7 @@ input:focus {
 }
 
 .logo-footer {
-  height: 14rem;
+  height: 4.55rem;
 }
 
 .social-links {
@@ -497,7 +478,29 @@ input:focus {
 }
 
 /* Responsive */
-@media (max-width: 800px) {
+@media (max-width: 850px) {
+  .header {
+    flex-direction: column;
+    padding: 1.3rem;
+    height: 9rem;
+  }
+
+  .logo {
+    height: 3.25rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .main-nav-list {
+    gap: 0.65rem;
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-weight: 500;
+    font-size: 0.91rem;
+    margin-right: 10px;
+  }
+
   .shopping-cart {
     width: 100%;
     height: auto;
@@ -520,5 +523,28 @@ input:focus {
   }
   .buttons {
     margin-right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    height: 2.6rem;
+  }
+
+  .header {
+    flex-direction: row;
+    height: 16rem;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    margin-right: 1.3rem;
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-weight: 500;
+    font-size: 0.91rem;
+    margin-right: 10px;
   }
 }

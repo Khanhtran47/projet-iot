@@ -36,13 +36,13 @@ textarea {
 
   /* Because we want header to be sticky later */
   height: 6rem;
-  padding: 0 3rem;
+  padding: 0 0.65rem;
   position: relative;
   width: 100%;
 }
 
 .logo {
-  height: 16.5rem;
+  height: 4.5rem;
 }
 
 /**************************/
@@ -53,7 +53,7 @@ textarea {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 1.95rem;
 }
 
 .main-nav-link:link,
@@ -402,44 +402,6 @@ textarea.input {
   border-radius: 4px;
 }
 
-@media (max-width: 850px) {
-  .form {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-info:before {
-    bottom: initial;
-    top: -75px;
-    right: 65px;
-    transform: scale(0.95);
-  }
-
-  .contact-form:before {
-    top: -13px;
-    left: initial;
-    right: 70px;
-  }
-
-  .square {
-    transform: translate(140%, 43%);
-    height: 350px;
-  }
-
-  .big-circle {
-    bottom: 75%;
-    transform: scale(0.9) translate(-40%, 30%);
-    right: 50%;
-  }
-
-  .text {
-    margin: 1rem 0 1.5rem 0;
-  }
-
-  .social-media {
-    padding: 1.5rem 0 0 0;
-  }
-}
-
 /**************************/
 /* FOOTER */
 /**************************/
@@ -465,7 +427,7 @@ textarea.input {
 }
 
 .logo-footer {
-  height: 14rem;
+  height: 4.55rem;
 }
 
 .social-links {
@@ -524,7 +486,88 @@ textarea.input {
   color: #555;
 }
 
+@media (max-width: 850px) {
+  .header {
+    flex-direction: column;
+    padding: 1.3rem;
+    height: 9rem;
+  }
+
+  .logo {
+    height: 3.25rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .main-nav-list {
+    gap: 0.65rem;
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-weight: 500;
+    font-size: 0.91rem;
+    margin-right: 10px;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info:before {
+    bottom: initial;
+    top: -75px;
+    right: 65px;
+    transform: scale(0.95);
+  }
+
+  .contact-form:before {
+    top: -13px;
+    left: initial;
+    right: 70px;
+  }
+
+  .square {
+    transform: translate(140%, 43%);
+    height: 350px;
+  }
+
+  .big-circle {
+    bottom: 75%;
+    transform: scale(0.9) translate(-40%, 30%);
+    right: 50%;
+  }
+
+  .text {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  .social-media {
+    padding: 1.5rem 0 0 0;
+  }
+}
+
 @media (max-width: 480px) {
+  .logo {
+    height: 2.6rem;
+  }
+
+  .header {
+    flex-direction: row;
+    height: 16rem;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    margin-right: 1.3rem;
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-weight: 500;
+    font-size: 0.91rem;
+    margin-right: 10px;
+  }
+
   .container {
     padding: 1.5rem;
   }
