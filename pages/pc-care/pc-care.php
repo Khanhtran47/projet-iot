@@ -38,7 +38,8 @@ function Lecture_Temperature($numerodesond)
 }
 
 // $mot_a_lire = (Read_Temperature("192.168.52.232", 502, 1, 16)) / 10;
-// $tmp = Lecture_Temperature(1);
+//$tmp = Lecture_Temperature(1);
+
 ?>
 
 <!DOCTYPE html>
@@ -139,6 +140,10 @@ function Lecture_Temperature($numerodesond)
       <h4>
         Ventilateur
       </h4>
+
+      <p><span class=" description big" style="color: white">🌡️ Temperature:</span> <span class="result big" style="color: white">18
+          <!-- <php echo $tmp;  ?></php>-->°C
+        </span></p>
 
       <form method="post" class="fan-control">
         <input type="submit" name="button1" class="button" value="Allumer Ventilateur" />
