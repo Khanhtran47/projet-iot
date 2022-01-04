@@ -11,6 +11,8 @@ require_once '../phpmailer/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 
 $mail = new PHPMailer(true);
+$my_email = getenv('MY_EMAIL');
+$my_email_password = getenv('MY_EMAIL_PASSWORD');
 
 $alert = '';
 
@@ -46,11 +48,11 @@ if (isset($_SESSION['cart'])) {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'hktech.iot@gmail.com'; // Gmail address which you want to use as SMTP server
-            $mail->Password = 'tranduckhanh'; // Gmail address Password
+            $mail->Username = $my_email; // Gmail address which you want to use as SMTP server
+            $mail->Password = $my_email_password; // Gmail address Password
             $mail->SMTPSecure = 'ssl';
             $mail->Port = '465';
-            $mail->setFrom('hktech.iot@gmail.com'); // Gmail address which you used as SMTP server
+            $mail->setFrom("" . $my_email . ""); // Gmail address which you used as SMTP server
             $mail->addAddress('' . $user . ''); // Email address where you want to receive emails (you can use any of your gmail address including the gmail address which you used as SMTP server)
 
             $mail->isHTML(true);
