@@ -234,7 +234,7 @@ if (session_id() == '' || !isset($_SESSION)) {
               “Plenty here to admire for both novice and veteran PC builders
               alike”
             </blockquote>
-            <p class="testimonial-name">&mdash; Enviosity</p>
+            <p class="testimonial-name">&mdash; Freddie Brady</p>
           </figure>
 
           <figure class="testimonial">
@@ -243,7 +243,7 @@ if (session_id() == '' || !isset($_SESSION)) {
               “Deserves attention both from budding builders and experienced
               enthusiasts”
             </blockquote>
-            <p class="testimonial-name">&mdash; Shroud</p>
+            <p class="testimonial-name">&mdash; Eliot Reyes</p>
           </figure>
 
           <figure class="testimonial">

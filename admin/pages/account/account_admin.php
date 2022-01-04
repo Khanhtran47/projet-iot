@@ -69,7 +69,7 @@ include '../../../database/config.php';
       </div>
     </div>
     <div class="form-container sign-up-container">
-      <form method="POST" class="cta-form" action="../../components/update.php">
+      <form method="POST" class="cta-form" action="../../../components/update.php">
         <h1>Account Detail</h1>
         <?php
 

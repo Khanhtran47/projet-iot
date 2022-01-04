@@ -110,8 +110,8 @@ include '../../database/config.php';
           echo '<input type="email" placeholder="' . $obj->email . '" />';
           echo '<input type="password" name="pwd" placeholder="Password"/>';
 
-          echo '<button type="submit" id="right-label" value="Update">Reset</button>';
           echo '<button type="reset" id="right-label" value="Reset">Reset</button>';
+          echo '<button type="submit" id="right-label" value="Update">Update</button>';
         }
         ?>
       </form>
