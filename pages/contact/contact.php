@@ -118,15 +118,15 @@ if (isset($_POST['submit'])) {
         <div class="info">
           <div class="information">
             <img src="../../img/contact/location.png" class="icon" alt="" />
-            <p>92 Cherry Drive Uniondale, NY 11553</p>
+            <p>15 avenue Maréchal Foch, 41000 Blois, France</p>
           </div>
           <div class="information">
             <img src="../../img/contact/email.png" class="icon" alt="" />
-            <p>lorem@ipsum.com</p>
+            <p>hktech.iot@gmail.com</p>
           </div>
           <div class="information">
             <img src="../../img/contact/phone.png" class="icon" alt="" />
-            <p>123-456-789</p>
+            <p>+33 123 45 67 89</p>
           </div>
         </div>
 
